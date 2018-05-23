@@ -1,11 +1,11 @@
 # importing necessary packages
 from color_shape_size_classifier import ShapeDetector
 from color_shape_size_classifier import ColorLabeler
+import numpy as np
 import imutils
 import cv2
-import numpy as np
-import os
  
+# dictionary for mapping full name and short names for attributes  
 cfull = {"red":"red", "yel":"yellow", "blu":"blue" }
 shfull = {"tri":"triangle", "sqr":"square", "cir":"circle" }
 sifull = {"sml":"small", "med":"medium", "lrg":"large" }
@@ -15,52 +15,64 @@ class ProcessedImage:
 	def __init__(self):
 		pass
 
+	# basic image processing tasks - colorspace conversion, masking, resizing, thresholding and contour approximation
 	def image_processing(self, imagepath, asp_rule_file, asp_fact_file):
+
+		# read image at given path and color space conversion RGB to HSV
 		img = cv2.imread(imagepath)
 		img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
+		# define range for black shade
 		lower_black = np.array([0,0,0]) 
 		upper_black = np.array([40,40,40])
 		mask_black = cv2.inRange(img_hsv, lower_black, upper_black)
 
+		# convert black shapes in original image to red
 		output1_img = img.copy()
 		output1_img[np.where(mask_black==255)] = [0, 0, 255]
 		img_hsv2 = cv2.cvtColor(output1_img, cv2.COLOR_BGR2HSV)
 
+		# define range for blue shade
 		lower_blue = np.array([0,120,255])
 		upper_blue = np.array([130,255,255])
 		mask_blue = cv2.inRange(img_hsv2, lower_blue, upper_blue)
 
+		# define range for yellow shade
 		lower_yellow = np.array([20,240,240]) 
 		upper_yellow = np.array([40,255,255])
 		mask_yellow = cv2.inRange(img_hsv2, lower_yellow, upper_yellow)
 
+		# define range for red shade
 		lower_red = np.array([144,0,0]) 
 		upper_red = np.array([255,0,0])
 		mask_red = cv2.inRange(img_hsv2, lower_red, upper_red)
 
+		# mask all portion with black that is not in range of defined blue, yellow and red shades
 		mask = mask_blue + mask_yellow + mask_red
-
 		output2_img = output1_img.copy()
 		output2_img[np.where(mask==0)] = 0
 
+		# resize image for better detection of small shapes and compute aspect ratio or original and zoomed images 
 		resized = imutils.resize(output2_img, width=500) #1000
 		ratio = output2_img.shape[0] / float(resized.shape[0])
 		 
+		# color space conversion RGB to GRAY and RGB to LAB
 		gray = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
 		lab = cv2.cvtColor(resized, cv2.COLOR_BGR2LAB)
-		thresh = cv2.threshold(gray, 60, 255, cv2.THRESH_BINARY)[1]
 
+		# apply thresholding and approximate contours of shapes
+		thresh = cv2.threshold(gray, 60, 255, cv2.THRESH_BINARY)[1]
 		cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 		cnts = cnts[0] if imutils.is_cv2() else cnts[1]
 		 
+		# create objects for ShapeDetector and ColorLabeler defined in color_shape_size_classifier
 		sd = ShapeDetector()
 		cl = ColorLabeler()
 
+		# some temporary variables used for clingo facts generation
 		result = []
 		asp = ""
 		figlist = ""
-			
 		xlocdict = {}
 		ylocdict = {}
 		boxdict = {}		
@@ -68,14 +80,18 @@ class ProcessedImage:
 		left = []
 		top = []
 
+		# for each contours obtained, identify shape, size and color
 		for i, c in enumerate(cnts):
+
+			# obtain image moments to locate center coordinates of a shape
 			M = cv2.moments(c)
 			cX = int((M["m10"] / M["m00"]) * ratio)
 			cY = int((M["m01"] / M["m00"]) * ratio)
 		 
+		 	# call shape and color recognizers with appropriate arguments 
+		 	# show contour boundarues and display attributes (shape, size, color) over them  
 			shape = sd.detect(c)
 			color = cl.label(lab, c)
-		 
 			c = c.astype("float")
 			c *= ratio
 			c = c.astype("int")
@@ -83,6 +99,7 @@ class ProcessedImage:
 			cv2.drawContours(output2_img, [c], -1, (0, 255, 0), 1)
 			cv2.putText(output2_img, text, (cX, cY), cv2.FONT_HERSHEY_COMPLEX_SMALL, 0.5, (255, 255, 255), 1)
 
+			# locate in which region of image (box), shape is located
 			if cX <= 110:
 				box = "1"
 			elif (cX >= 140 and cX <= 260):
@@ -92,8 +109,8 @@ class ProcessedImage:
 			else:
 				print "box not identified correctly"
 
+			# get the labels in short form and convert them to full attribute names using dictionaries defined above	
 			c, si, sh = text.split()
-			
 			for key in cfull:
 				if c==key:
 					c = c.replace(c, cfull[key])
@@ -103,15 +120,15 @@ class ProcessedImage:
 			for key in shfull:
 				if sh==key:
 					sh = sh.replace(sh, shfull[key])
-   
 			result.append((i, c, si, sh))
 
+			# metadata about shape - unique id, central co-ordinates, box that contains the given shape
 			figName = "o" + str(i + 1)
-			#print figName
 			xlocdict[i+1] = cX
 			ylocdict[i+1] = cY	
 			boxdict[i+1] = box			 
 
+			
 			figlist += figName+";" 
 			asp += ("has(" + figName + ", size, "+ si + ").") + "\n"
 			asp += ("has(" + figName + ", shape, "+ sh + ").") + "\n"
@@ -169,4 +186,4 @@ class ProcessedImage:
 		cv2.imshow("output2", output2_img)
 		cv2.waitKey()
 
-		
+# Reference: https://www.pyimagesearch.com/2016/02/15/determining-object-color-with-opencv/		
