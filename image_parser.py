@@ -1,4 +1,4 @@
-# importing necessary packages
+# import necessary packages
 from color_shape_size_classifier import ShapeDetector
 from color_shape_size_classifier import ColorLabeler
 import numpy as np
@@ -128,14 +128,13 @@ class ProcessedImage:
 			ylocdict[i+1] = cY	
 			boxdict[i+1] = box			 
 
-			
+			# predicates about metadata of identified shapes and write them on file
 			figlist += figName+";" 
 			asp += ("has(" + figName + ", size, "+ si + ").") + "\n"
 			asp += ("has(" + figName + ", shape, "+ sh + ").") + "\n"
 			asp += ("has(" + figName + ", color, "+ c + ").") + "\n"
 			asp += ("inBox(" + figName + ", "+ box +").") + "\n"
 			asp += ("\n")
-
 			with open (asp_fact_file, 'w') as fp: 
 				fp.write(asp)
 
@@ -143,6 +142,7 @@ class ProcessedImage:
 		appstr2 = ""
 		appstr3 = ""
 
+		# predicates about spatial relationships among objects and write them on file
 		for i in boxdict:
 			for j in boxdict:
 				if i<j and boxdict[i]==boxdict[j]:
@@ -176,6 +176,7 @@ class ProcessedImage:
 			for i in top:
 				fp.write(i)
 
+		# object listing, write on files 
 		figlist = "object(" + figlist + ")."
 		figlist = figlist.replace(";).", ").")
 		figlist = figlist + "\n\n"
@@ -183,6 +184,7 @@ class ProcessedImage:
 		with open (asp_rule_file, 'w') as fp: 
 			fp.write(figlist)
 
+		# show annotated image, wait for user to hit enter
 		cv2.imshow("output2", output2_img)
 		cv2.waitKey()
 

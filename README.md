@@ -10,8 +10,8 @@ OpenCV (3.3.0) (https://opencv.org/) <br />
 Stanford Parser (3.9.1 with englishPCFG.ser.gz) (https://nlp.stanford.edu/software/lex-parser.shtml) <br /> 
 Clingo (5.2.2) (http://potassco.sourceforge.net/clingo.html) 
 
-Required Directory Structure for running the project:
-=====================================================
+Required Directory Structure:
+=============================
 
 The following 3 directry structures should be maintained and they must be put under a same parent directory. (files/directories that are not relevant here are not shown)
 
@@ -58,12 +58,14 @@ Running the project:
 
 Navigate to the VisualReasoning directory.
 
-python2 main.py -i <path to image in train or test set>
-(for example: python2 main.py -i ../nlvr-master/test/images/1/test-100-0-1.png)
+python2 main.py -i < path_to_image_in_train_or_test_set > -p < path_to_stanford_parser_dependencies_directory > <br />
+(for example: python2 main.py -i ../nlvr-master/test/images/1/test-100-0-1.png -p ../StanfordParser/)
 
 The script will generate -
 1. Annoted image after image parsing, press Enter to move forward. 
 2. Clingo rules, file will be stored under nlvr-master/train/clingo or nlvr-master/test/clingo directory based on input image path.  
-3. Parse tree after query parsing, Close the window to continue.
+3. Parse tree after query parsing.
+4. Clingo grounding for the image and query.
+5. Final predicted Label (truth value). 
 
 

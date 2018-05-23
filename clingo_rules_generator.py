@@ -1,10 +1,14 @@
+# import necessary packages
 import os
 
+# class FactsRules describing knowledge-base 
 class FactsRules:
+
 	# initialization method - do nothing
 	def __init__(self):
 		pass
 
+	# method rules_definition to generate base facs and common-sense rules
 	def rules_definition(self, asp_rule_file, asp_fact_file):
 		base_facts = ""
 		base_facts += "color(red;blue;yellow;grey)."+"\n"
@@ -25,15 +29,15 @@ class FactsRules:
 		common_rules += "notTop(X,B) :- memberOfTower(X,B), memberOfTower(Y,B), onTop(Y,X)."+"\n" 
 		common_rules += "topOfTower(X,B) :- memberOfTower(X,B), not notTop(X,B)."+"\n\n" 
 		common_rules += "notBot(X,B) :- memberOfTower(X,B), memberOfTower(Y,B), onTop(X,Y)."+"\n" 
-		common_rules += "botOfTower(X,B) :- memberOfTower(X,B), not notBot(X,B)."+"\n" 
-
+		common_rules += "botOfTower(X,B) :- memberOfTower(X,B), not notBot(X,B)."+"\n\n"
+		common_rules += "stacked(X,Y,B) :- memberOfTower(X,B), memberOfTower(Y,B), onTop(X,Y)."+"\n" 
+		common_rules += "stacked(X,Y,B) :- memberOfTower(X,B), memberOfTower(Y,B), onTop(Y,X)."+"\n"
+		common_rules += "stacked(Y,X,B) :- stacked(X,Y,B)."+"\n\n"
+		
+ 
+		# write rules on file which will be used to check clingo grounding
 		with open (asp_rule_file,'a') as fp, open(asp_fact_file,'r') as fr: 
 			fp.write(base_facts)
 			fp.writelines(l for l in fr)
 			fp.write(common_rules)
-		
 		os.system("rm " + asp_fact_file)	
-
-#p(N):- N = #count{X,B: memberOfTower(X,B), has(X,color,C)}
-#p(N) should be same as sizeOfTower(S,B)
-#count of each member of tower with color C is equal to size of tower

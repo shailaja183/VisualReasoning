@@ -4,13 +4,17 @@ from clingo_rules_generator import FactsRules
 from query_parser import QueryParse
 import argparse
 import os
+import commands
 
 # parse inline arguments and get image path
 ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--imgpath", required=True, help="provde full path to the input image") 
+ap.add_argument("-i", "--imgpath", required=True, help="provde full path to the input image file") 
+ap.add_argument("-p", "--parser", required=True, help="provide full path to the stanford parser directory")
 args = vars(ap.parse_args())
 imagepath = args["imgpath"]
+stanfordpath = args["parser"]
 print("\nRead image at path "+imagepath) 
+print("Stanford parser directory path  "+stanfordpath) 
 
 # create asp_fact_file and asp_rule_file for the input image
 asp_fact_file = imagepath.replace('/images/','/clingo/')
@@ -42,8 +46,17 @@ elif "test" in imagepath:
 # create object for query generation module and call function with appropriate arguments 
 print("\nQuery parsed, parse tree is as follows.")
 qp = QueryParse()
-qp.get_query_and_parse(queryid, asp_rule_file)
+qp.get_query_and_parse(queryid, asp_rule_file, stanfordpath)
 
-# run program on clingo
+# run program on clingo and predict label
 run_clingo = "clingo "+asp_rule_file+" 0"
-os.system(run_clingo)
+output = commands.getoutput(run_clingo)
+label = output.splitlines()
+if label[-6]=="UNSATISFIABLE":
+	print("Predicted Label: True")
+elif label[-6]=="SATISFIABLE":
+	print("Predicted Label: False")
+else:
+	print("Clingo grounding failed.")
+
+
