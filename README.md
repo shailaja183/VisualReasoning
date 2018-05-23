@@ -19,36 +19,27 @@ NLVR Dataset: <br />
 -------------
 The dataset can be downloadd from Github repository https://github.com/clic-lab/nlvr 
 
-+--- Nlvr-master <br /> 
-|    +--- test <br /> 
-| 	 |    +--- clingo (this directory will be created after running main.py) <br /> 
-| 	 |	  +--- images <br /> 
-|	 | 	  test.json <br /> 
-|    +--- train <br /> 
-| 	 |	  +--- clingo (this directory will be created after running main.py) <br /> 
-| 	 |	  +--- images <br /> 
-|	 | 	  train.json <br /> 
++--- nlvr-master <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; +--- test <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; +--- clingo (this directory will be created after running main.py) <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; +--- images <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; test.json <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; +--- train <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; +--- clingo (this directory will be created after running main.py) <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; +--- images <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; train.json <br /> 
 
 Stanford Parser Dependencies: <br /> 
 -----------------------------
-Download stanford-parser-full-2018-02-27 from https://nlp.stanford.edu/software/lex-parser.shtml#Download under heading 'Download Stanford Parser version 3.9.1'.
+Download stanford-parser-full-2018-02-27 from https://nlp.stanford.edu/software/lex-parser.shtml#Download under heading 'Download Stanford Parser version 3.9.1' and unzip.
 
-Followed by that, click on 'English Models' to download ''
+Copy stanford-parser-3.9.1-models.jar from stanford-parser-full-2018-02-27. Convert it to zip format and unzip. Then navigate to edu/stanford/nlp/models/lexparser. Copy englishPCFG.ser.gz and paste in parent directory (StanfordParser).
 
-Copy stanford-parser.jar from stanford-parser-full-2018-02-27 in the parent directory (stanford-parser), unzip and move to edu/stanford/nlp/ inside. 
-
-+--- Stanford-Parser <br /> 
-| >> englishPCFG.ser.gz <br /> 
-| >> +--- stanford-parser-full-2018-02-27 <br /> 
-| >> | >> stanford-parser.jar <br />  
-| >> | >> stanford-parser-3.9.1-models.jar <br /> 
-
-> +--- Stanford-Parser 
->> &nbsp;&nbsp;&nbsp;&nbsp;& | englishPCFG.ser.gz 
->> &nbsp;&nbsp;&nbsp;&nbsp;& +--- stanford-parser-full-2018-02-27
->> +--- stanford-parser.jar
->> 
-
++--- StanfordParser <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; englishPCFG.ser.gz <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; +--- stanford-parser-full-2018-02-27 <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; stanford-parser.jar <br />  
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; stanford-parser-3.9.1-models.jar <br /> 
 
 Visual Reasoning Code Files: <br /> 
 ----------------------------
@@ -56,13 +47,13 @@ Visual Reasoning Code Files: <br />
 Clone VisualReasoning repository from https://github.com/shailaja183/VisualReasoning 
 
 +--- VisualReasoning <br /> 
-| 	 |	  clingo_rules_generator <br /> 
-| 	 |	  color_shape_size_classifier.py <br /> 
-| 	 |	  image_parser.py <br /> 
-| 	 |	  main.py <br /> 
-| 	 |	  query_parser.py <br />  
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; clingo_rules_generator.py <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; color_shape_size_classifier.py <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; image_parser.py <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; main.py <br /> 
+| &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; query_parser.py <br />  
 
 Running the project:
 ====================
 
-python -i xxx -p xxx 
+python2 main.py -i ../nlvr-master/test/images/1/test-100-0-1.png
