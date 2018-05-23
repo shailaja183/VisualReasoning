@@ -2,32 +2,58 @@
 Visual Reasoning on CNLVR Dataset Using Answer Set Programming
 ==============================================================
 
-This repository contains files for Visual Reasoning using Answer Set Programming on CNLVR Dataset. We have developed and tested our system on following envrionment;
+This repository contains files for Visual Reasoning using Answer Set Programming on CNLVR Dataset. We have developed and tested our system on following envrionment.
 Check out provided links for more details about each component.
 
-Python2 (2.7.13 and 3.6.4)__
-OpenCV (3.3.0) (https://opencv.org/)__
-Stanford Parser (with englishPCFG.ser.gz) (https://nlp.stanford.edu/software/lex-parser.shtml)__
-Clingo (5.2.2) (http://potassco.sourceforge.net/clingo.html)__
+Python2 (2.7.13 and 3.6.4) <br /> 
+OpenCV (3.3.0) (https://opencv.org/) <br /> 
+Stanford Parser (with englishPCFG.ser.gz) (https://nlp.stanford.edu/software/lex-parser.shtml) <br /> 
+Clingo (5.2.2) (http://potassco.sourceforge.net/clingo.html) 
 
-Directory Structure for Visual Reasoning:
-=========================================
+Required Directory Structure for running the project:
+=====================================================
 
-NLVR Dataset:__
-The dataset can be downloadd from Github repository https://github.com/clic-lab/nlvr
+The following 3 directry structures should be maintained and they must be put under a same parent directory. (files/directories that are not relevant are not shown)
 
-+--- nlvr-master <br /> 
-|    +--- dev <br /> 
-|    +--- train <br /> 
+NLVR Dataset: <br /> 
+-------------
+The dataset can be downloadd from Github repository https://github.com/clic-lab/nlvr 
+
++--- Nlvr-master <br /> 
 |    +--- test <br /> 
-|    license.txt <br /> 
-|    metrics_images.py <br /> 
-|    metrics_structured_rep.py <br /> 
+| 	 |    +--- clingo (this directory will be created after running main.py) <br /> 
+| 	 |	  +--- images <br /> 
+|	 | 	  test.json <br /> 
+|    +--- train <br /> 
+| 	 |	  +--- clingo (this directory will be created after running main.py) <br /> 
+| 	 |	  +--- images <br /> 
+|	 | 	  train.json <br /> 
 
-VisReason Repository:____
+Stanford Parser Dependencies: <br /> 
+-----------------------------
+Download stanford-parser-full-2018-02-27 from https://nlp.stanford.edu/software/lex-parser.shtml#Download under heading 'Download Stanford Parser version 3.9.1'.
 
-Stanford Parser Dependencies:__
-Download stanford-parser-full-2018-02-27
+Followed by that, click on 'English Models' to download ''
+
+Copy stanford-parser.jar from stanford-parser-full-2018-02-27 in the parent directory (stanford-parser), unzip and move to edu/stanford/nlp/ inside. 
+
++--- Stanford-Parser <br /> 
+|	 englishPCFG.ser.gz
+|    +--- stanford-parser-full-2018-02-27 <br /> 
+| 	 |	  stanford-parser.jar <br />  
+| 	 |	  stanford-parser-3.9.1-models.jar <br /> 
+
+Visual Reasoning Code Files: <br /> 
+----------------------------
+
+Clone VisualReasoning repository from https://github.com/shailaja183/VisualReasoning 
+
++--- VisualReasoning <br /> 
+| 	 |	  clingo_rules_generator <br /> 
+| 	 |	  color_shape_size_classifier.py <br /> 
+| 	 |	  image_parser.py <br /> 
+| 	 |	  main.py <br /> 
+| 	 |	  query_parser.py <br />  
 
 Running the project:
 ====================
