@@ -7,13 +7,13 @@ Check out provided links for more details about each component.
 
 Python2 (2.7.13 and 3.6.4) <br /> 
 OpenCV (3.3.0) (https://opencv.org/) <br /> 
-Stanford Parser (with englishPCFG.ser.gz) (https://nlp.stanford.edu/software/lex-parser.shtml) <br /> 
+Stanford Parser (3.9.1 with englishPCFG.ser.gz) (https://nlp.stanford.edu/software/lex-parser.shtml) <br /> 
 Clingo (5.2.2) (http://potassco.sourceforge.net/clingo.html) 
 
 Required Directory Structure for running the project:
 =====================================================
 
-The following 3 directry structures should be maintained and they must be put under a same parent directory. (files/directories that are not relevant are not shown)
+The following 3 directry structures should be maintained and they must be put under a same parent directory. (files/directories that are not relevant here are not shown)
 
 NLVR Dataset: <br /> 
 -------------
@@ -38,10 +38,10 @@ Followed by that, click on 'English Models' to download ''
 Copy stanford-parser.jar from stanford-parser-full-2018-02-27 in the parent directory (stanford-parser), unzip and move to edu/stanford/nlp/ inside. 
 
 +--- Stanford-Parser <br /> 
-|	 englishPCFG.ser.gz
-|    +--- stanford-parser-full-2018-02-27 <br /> 
-| 	 |	  stanford-parser.jar <br />  
-| 	 |	  stanford-parser-3.9.1-models.jar <br /> 
+| >> englishPCFG.ser.gz
+| >> +--- stanford-parser-full-2018-02-27 <br /> 
+| >> | >> stanford-parser.jar <br />  
+| >> | >> stanford-parser-3.9.1-models.jar <br /> 
 
 Visual Reasoning Code Files: <br /> 
 ----------------------------
