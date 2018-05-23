@@ -44,7 +44,10 @@ Copy stanford-parser.jar from stanford-parser-full-2018-02-27 in the parent dire
 | >> | >> stanford-parser-3.9.1-models.jar <br /> 
 
 > +--- Stanford-Parser 
->> | englishPCFG.ser.gz 
+>> &nbsp;&nbsp;&nbsp;&nbsp;& | englishPCFG.ser.gz 
+>> &nbsp;&nbsp;&nbsp;&nbsp;& +--- stanford-parser-full-2018-02-27
+>> +--- stanford-parser.jar
+>> 
 
 
 Visual Reasoning Code Files: <br /> 
