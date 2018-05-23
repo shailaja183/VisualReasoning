@@ -16,13 +16,13 @@ Directory Structure for Visual Reasoning:
 NLVR Dataset:__
 The dataset can be downloadd from Github repository https://github.com/clic-lab/nlvr
 
-+--- nlvr-master__ 
-|    +--- dev__
-|    +--- train__
-|    +--- test__
-|    license.txt__
-|    metrics_images.py__
-|    metrics_structured_rep.py__
++--- nlvr-master <br /> 
+|    +--- dev <br /> 
+|    +--- train <br /> 
+|    +--- test <br /> 
+|    license.txt <br /> 
+|    metrics_images.py <br /> 
+|    metrics_structured_rep.py <br /> 
 
 VisReason Repository:____
 
