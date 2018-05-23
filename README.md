@@ -38,10 +38,14 @@ Followed by that, click on 'English Models' to download ''
 Copy stanford-parser.jar from stanford-parser-full-2018-02-27 in the parent directory (stanford-parser), unzip and move to edu/stanford/nlp/ inside. 
 
 +--- Stanford-Parser <br /> 
-| >> englishPCFG.ser.gz
+| >> englishPCFG.ser.gz <br /> 
 | >> +--- stanford-parser-full-2018-02-27 <br /> 
 | >> | >> stanford-parser.jar <br />  
 | >> | >> stanford-parser-3.9.1-models.jar <br /> 
+
+> +--- Stanford-Parser 
+>> | englishPCFG.ser.gz 
+
 
 Visual Reasoning Code Files: <br /> 
 ----------------------------
