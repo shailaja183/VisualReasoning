@@ -56,4 +56,14 @@ Clone VisualReasoning repository from https://github.com/shailaja183/VisualReaso
 Running the project:
 ====================
 
-python2 main.py -i ../nlvr-master/test/images/1/test-100-0-1.png
+Navigate to the VisualReasoning directory.
+
+python2 main.py -i <path to image in train or test set>
+(for example: python2 main.py -i ../nlvr-master/test/images/1/test-100-0-1.png)
+
+The script will generate -
+1. Annoted image after image parsing, press Enter to move forward. 
+2. Clingo rules, file will be stored under nlvr-master/train/clingo or nlvr-master/test/clingo directory based on input image path.  
+3. Parse tree after query parsing, Close the window to continue.
+
+
