@@ -1,0 +1,1511 @@
+test-102-0.png,There is at least 1 box with 1 yellow item,true,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=yellow.
+:- p(M,N), M=1, N=0..1.",
+test-102-1.png,There is at least 1 box with 1 yellow item,true,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=yellow.
+:- p(M,N), M=1, N=0..1.",
+test-102-2.png,There is at least 1 box with 1 yellow item,true,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=yellow.
+:- p(M,N), M=1, N=0..1.",
+test-102-3.png,There is at least 1 box with 1 yellow item,false,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=yellow.
+:- p(M,N), M=1, N=0..1.",
+test-1406-0.png,There is a black circle closely touching right wall of a box.,true,"p(M) :- M = #count{X: touchingWCloseinBox(X,Y,D1), has(X,shape,S1), has(X,color,C1)}, S1=circle, C1=black, D1=right. 
+:- p(0).",
+test-1406-1.png,There is a black circle closely touching right wall of a box.,true,"p(M) :- M = #count{X: touchingWCloseinBox(X,Y,D1), has(X,shape,S1), has(X,color,C1)}, S1=circle, C1=black, D1=right. 
+:- p(0).",
+test-1406-2.png,There is a black circle closely touching right wall of a box.,false,"p(M) :- M = #count{X: touchingWCloseinBox(X,Y,D1), has(X,shape,S1), has(X,color,C1)}, S1=circle, C1=black, D1=right. 
+:- p(0).",
+test-1406-3.png,There is a black circle closely touching right wall of a box.,false,"p(M) :- M = #count{X: touchingWCloseinBox(X,Y,D1), has(X,shape,S1), has(X,color,C1)}, S1=circle, C1=black, D1=right. 
+:- p(0).",
+test-1464-0.png,There is a box with a yellow circle and exactly one yellow triangle.,true,"p(M,N,O) :- M = #count{X: has(X,color,C1),has(X,shape,S1)}, N = #count{X: has(X,color,C2),has(X,shape,S2)}, O = #count{Y: has(X,color,C1),has(Z,color,C2),inBox(X,Y),inBox(Z,Y)}, C1=yellow, C2=yellow, S1=circle, S2=triangle.
+:- not p(M,N,O), M=1, N=1, O=1.",
+test-1464-1.png,There is a box with a yellow circle and exactly one yellow triangle.,true,"p(M,N,O) :- M = #count{X: has(X,color,C1),has(X,shape,S1)}, N = #count{X: has(X,color,C2),has(X,shape,S2)}, O = #count{Y: has(X,color,C1),has(Z,color,C2),inBox(X,Y),inBox(Z,Y)}, C1=yellow, C2=yellow, S1=circle, S2=triangle.
+:- not p(M,N,O), M=1, N=1, O=1.",
+test-1464-2.png,There is a box with a yellow circle and exactly one yellow triangle.,false,"p(M,N,O) :- M = #count{X: has(X,color,C1),has(X,shape,S1)}, N = #count{X: has(X,color,C2),has(X,shape,S2)}, O = #count{Y: has(X,color,C1),has(Z,color,C2),inBox(X,Y),inBox(Z,Y)}, C1=yellow, C2=yellow, S1=circle, S2=triangle.
+:- not p(M,N,O), M=1, N=1, O=1.",
+test-1464-3.png,There is a box with a yellow circle and exactly one yellow triangle.,false,"p(M,N,O) :- M = #count{X: has(X,color,C1),has(X,shape,S1)}, N = #count{X: has(X,color,C2),has(X,shape,S2)}, O = #count{Y: has(X,color,C1),has(Z,color,C2),inBox(X,Y),inBox(Z,Y)}, C1=yellow, C2=yellow, S1=circle, S2=triangle.
+:- not p(M,N,O), M=1, N=1, O=1.",
+test-1609-0.png,there is a black square not touching the edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,shape,S1), has(X,color,C1)}, S1=square, C1=black.
+:- p(0).",
+test-1609-1.png,there is a black square not touching the edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,shape,S1), has(X,color,C1)}, S1=square, C1=black.
+:- p(0).",
+test-1609-2.png,there is a black square not touching the edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,shape,S1), has(X,color,C1)}, S1=square, C1=black.
+:- p(0).",
+test-1609-3.png,there is a black square not touching the edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,shape,S1), has(X,color,C1)}, S1=square, C1=black.
+:- p(0).",
+test-2032-0.png,There are exactly three black objects not touching any edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), object(X), has(X,color,C1)}, C1=black.
+:- not p(3).",
+test-2032-1.png,There are exactly three black objects not touching any edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), object(X), has(X,color,C1)}, C1=black.
+:- not p(3).",
+test-2032-2.png,There are exactly three black objects not touching any edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), object(X), has(X,color,C1)}, C1=black.
+:- not p(3).",
+test-2032-3.png,There are exactly three black objects not touching any edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), object(X), has(X,color,C1)}, C1=black.
+:- not p(3).",
+test-2054-1.png,There is exactly one blue triangle not touching the edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), object(X), has(X,color,C1)}, C1=black.
+:- p(0).",
+test-2137-0.png,There is 1 tower with 2 black blocks at the base,true,FAIL,tower has only one block at base
+test-2137-2.png,There is 1 tower with 2 black blocks at the base,true,FAIL,
+test-2137-3.png,There is 1 tower with 2 black blocks at the base,false,FAIL,
+test-2217-0.png,There are 4 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..3.",
+test-2217-1.png,There are 4 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..3.",
+test-2217-2.png,There are 4 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..3.",
+test-2217-3.png,There are 4 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..3.",
+test-2336-0.png,There is 1 tower with at least 3 yellow blocks,true,"p(M,N) :- M = #count{X: block(X), has(X,color,C1)}, N = #count{Y: block(X), has(X,color,C1), memberOfTower(X,Y)}, C1=yellow.
+:- p(M,N), M=0..2, N=1.",
+test-2336-1.png,There is 1 tower with at least 3 yellow blocks,true,"p(M,N) :- M = #count{X: block(X), has(X,color,C1)}, N = #count{Y: block(X), has(X,color,C1), memberOfTower(X,Y)}, C1=yellow.
+:- p(M,N), M=0..2, N=1.",
+test-2336-2.png,There is 1 tower with at least 3 yellow blocks,false,"p(M,N) :- M = #count{X: block(X), has(X,color,C1)}, N = #count{Y: block(X), has(X,color,C1), memberOfTower(X,Y)}, C1=yellow.
+:- p(M,N), M=0..2, N=1.",
+test-2336-3.png,There is 1 tower with at least 3 yellow blocks,true,"p(M,N) :- M = #count{X: block(X), has(X,color,C1)}, N = #count{Y: block(X), has(X,color,C1), memberOfTower(X,Y)}, C1=yellow.
+:- p(M,N), M=0..2, N=1.",
+test-2434-0.png,There is 1 tower with a blue block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-2434-1.png,There is 1 tower with a blue block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-2434-2.png,There is 1 tower with a blue block at the base,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-2462-0.png,There are 2 towers with a black block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2462-1.png,There are 2 towers with a black block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2462-2.png,There are 2 towers with a black block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2462-3.png,There are 2 towers with a black block at the top,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2492-0.png,There are 2 towers with a black block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2492-1.png,There are 2 towers with a black block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2492-2.png,There are 2 towers with a black block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2492-3.png,There are 2 towers with a black block at the base,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2597-0.png,There is a box with a black item touching the wall and a yellow item right on top of it.,true,FAIL,
+test-2597-1.png,There is a box with a black item touching the wall and a yellow item right on top of it.,true,FAIL,
+test-2597-3.png,There is a box with a black item touching the wall and a yellow item right on top of it.,false,FAIL,
+test-2619-0.png,There is a box with only blue and yellow items.,true,"p(M) :- M = #count{Y: item(X),has(X,color,C1),inBox(X,Y), item(Z), has(Z,color,C2),inBox(Z,Y)}, C1=yellow, C2=blue.
+:- p(0).",
+test-2619-1.png,There is a box with only blue and yellow items.,true,"p(M) :- M = #count{Y: item(X),has(X,color,C1),inBox(X,Y), item(Z), has(Z,color,C2),inBox(Z,Y)}, C1=yellow, C2=blue.
+:- p(0).",
+test-2619-2.png,There is a box with only blue and yellow items.,false,"p(M) :- M = #count{Y: item(X),has(X,color,C1),inBox(X,Y), item(Z), has(Z,color,C2),inBox(Z,Y)}, C1=yellow, C2=blue.
+:- p(0).",
+test-2619-3.png,There is a box with only blue and yellow items.,false,"p(M) :- M = #count{Y: item(X),has(X,color,C1),inBox(X,Y), item(Z), has(Z,color,C2),inBox(Z,Y)}, C1=yellow, C2=blue.
+:- p(0).",
+test-2632-0.png,There is a box with items of only yellow color.,true,"p(M,N) :- M = #count{Y: item(X),has(X,color,C1),inBox(X,Y)}, N = #count{X: item(X),has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0, N=0.",
+test-2632-1.png,There is a box with items of only yellow color.,true,"p(M) :- M = #count{X: item(X),has(X,color,C1)}, C1=yellow.
+:- p(0).",
+test-2632-2.png,There is a box with items of only yellow color.,false,"p(M) :- M = #count{X: item(X),has(X,color,C1)}, C1=yellow.
+:- p(0).",
+test-2632-3.png,There is a box with items of only yellow color.,false,"p(M) :- M = #count{X: item(X),has(X,color,C1)}, C1=yellow.
+:- p(0).",
+test-2672-0.png,There is a box with 4 items of 2 different colors.,true,"p(M,N,O) :- M = #count{X: item(X),different()}, N = #count{Y: item(X), inBox(X,Y)}, O= #count{Z,X: different(Z,X,color)}.
+:- not p(M,N,O), M=4, N=1, O=2.",
+test-2672-1.png,There is a box with 4 items of 2 different colors.,true,"p(M,N,O) :- M = #count{X: item(X),different()}, N = #count{Y: item(X), inBox(X,Y)}, O= #count{Z,X: different(Z,X,color)}.
+:- not p(M,N,O), M=4, N=1, O=2.",
+test-2672-2.png,There is a box with 4 items of 2 different colors.,false,"p(M,N,O) :- M = #count{X: item(X),different()}, N = #count{Y: item(X), inBox(X,Y)}, O= #count{Z,X: different(Z,X,color)}.
+:- not p(M,N,O), M=4, N=1, O=2.",
+test-2672-3.png,There is a box with 4 items of 2 different colors.,false,"p(M,N,O) :- M = #count{X: item(X),different()}, N = #count{Y: item(X), inBox(X,Y)}, O= #count{Z,X: different(Z,X,color)}.
+:- not p(M,N,O), M=4, N=1, O=2.",
+test-2756-0.png,There is a box with 3 items of 2 different colors of which one is yellow.,true,FAIL,Not enough knowledge base to represent this query
+test-2756-1.png,There is a box with 3 items of 2 different colors of which one is yellow.,true,FAIL,
+test-2756-2.png,There is a box with 3 items of 2 different colors of which one is yellow.,true,FAIL,
+test-2756-3.png,There is a box with 3 items of 2 different colors of which one is yellow.,true,FAIL,
+test-285-0.png,There are 2 yellow squares,true,"p(N) :- N = #count{X: has(X,shape,S1), has(X,color,C1)}, C1=yellow, S1=square.
+:- p(N), N=0..1.",
+test-285-1.png,There are 2 yellow squares,true,"p(N) :- N = #count{X: has(X,shape,S1), has(X,color,C1)}, C1=yellow, S1=square.
+:- p(N), N=0..1.",
+test-285-2.png,There are 2 yellow squares,true,"p(N) :- N = #count{X: has(X,shape,S1), has(X,color,C1)}, C1=yellow, S1=square.
+:- p(N), N=0..1.",
+test-285-3.png,There are 2 yellow squares,true,"p(N) :- N = #count{X: has(X,shape,S1), has(X,color,C1)}, C1=yellow, S1=square.
+:- p(N), N=0..1.",
+test-2951-0.png,There are two towers that has only one block.,true,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y)}, Si1=1.
+:- p(N), N=0..1.",
+test-2951-1.png,There are two towers that has only one block.,true,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y)}, Si1=1.
+:- p(N), N=0..1.",
+test-2951-2.png,There are two towers that has only one block.,false,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y)}, Si1=1.
+:- p(N), N=0..1.",
+test-2951-3.png,There are two towers that has only one block.,false,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y)}, Si1=1.
+:- p(N), N=0..1.",
+test-3161-0.png,There is a blue block as the top of a tower.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-3161-1.png,There is a blue block as the top of a tower.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-3161-2.png,There is a blue block as the top of a tower.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-3215-0.png,There is a black block as the top of a tower with four blocks.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y), sizeOfTower(Si1,Y)}, C1=black, Si1=4.
+:- p(0).",
+test-3215-1.png,There is a black block as the top of a tower with four blocks.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y), sizeOfTower(Si1,Y)}, C1=black, Si1=4.
+:- p(0).",
+test-3215-2.png,There is a black block as the top of a tower with four blocks.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y), sizeOfTower(Si1,Y)}, C1=black, Si1=4.
+:- p(0).",
+test-3215-3.png,There is a black block as the top of a tower with four blocks.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y), sizeOfTower(Si1,Y)}, C1=black, Si1=4.
+:- p(0).",
+test-3410-0.png,There is a black block a sthe base of a tower with more than two blocks.,true,FAIL,"sizeOfTower is defined as tower with having some integer size, failed as size to be matched is more than 2 blocks"
+test-3410-1.png,There is a black block a sthe base of a tower with more than two blocks.,true,FAIL,
+test-3410-2.png,There is a black block a sthe base of a tower with more than two blocks.,false,FAIL,
+test-3410-3.png,There is a black block a sthe base of a tower with more than two blocks.,false,FAIL,
+test-3433-0.png,There is exactly one black block as the base of a tower.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- not p(1).",
+test-3433-1.png,There is exactly one black block as the base of a tower.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- not p(1).",
+test-3433-2.png,There is exactly one black block as the base of a tower.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- not p(1).",
+test-3433-3.png,There is exactly one black block as the base of a tower.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- not p(1).",
+test-3437-0.png,There is a blue block on a yellow block.,true,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=blue, C2=yellow.                                                                      :- p(0).",
+test-3437-1.png,There is a blue block on a yellow block.,true,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=blue, C2=yellow.                                                                      :- p(0).",
+test-3437-2.png,There is a blue block on a yellow block.,false,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=blue, C2=yellow.                                                                      :- p(0).",
+test-3437-3.png,There is a blue block on a yellow block.,false,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=blue, C2=yellow.                                                                      :- p(0).",
+test-363-0.png,There is 1 box with exactly 1 item,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X),inBox(X,Y)}.
+:- not p(M,N), M=1, N=1.",
+test-363-1.png,There is 1 box with exactly 1 item,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X),inBox(X,Y)}.
+:- not p(M,N), M=1, N=1.",
+test-363-2.png,There is 1 box with exactly 1 item,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X),inBox(X,Y)}.
+:- p(M,N), M=1, N=1.",
+test-3669-0.png,the tower with three blocks has one yellow object,true,"p(N) :- N = #count{Y: item(X), has(X,color,C1), sizeOfTower(Si1,Y)}, C1=yellow, Si1=3.
+:- p(0).",
+test-3669-1.png,the tower with three blocks has one yellow object,true,"p(N) :- N = #count{Y: item(X), has(X,color,C1), sizeOfTower(Si1,Y)}, C1=yellow, Si1=3.
+:- p(0).",
+test-3669-2.png,the tower with three blocks has one yellow object,false,"p(N) :- N = #count{Y: item(X), has(X,color,C1), sizeOfTower(Si1,Y)}, C1=yellow, Si1=3.
+:- p(0).",
+test-3669-3.png,the tower with three blocks has one yellow object,false,"p(N) :- N = #count{Y: item(X), has(X,color,C1), sizeOfTower(Si1,Y)}, C1=yellow, Si1=3.
+:- p(0).",
+test-3691-0.png,there is one tower which has a yellow block above a blue block,true,"p(N) :- N = #count{B: memberOfTower(X,B), memberOfTower(Y,B), has(X,color,C1), has(Y,color,C2), onTop(Y,X)}, C1=yellow, C2=blue.                                                                      
+:- p(0).",
+test-3691-1.png,there is one tower which has a yellow block above a blue block,true,"p(N) :- N = #count{B: memberOfTower(X,B), memberOfTower(Y,B), has(X,color,C1), has(Y,color,C2), onTop(Y,X)}, C1=yellow, C2=blue.                                                                      
+:- p(0).",
+test-3691-2.png,there is one tower which has a yellow block above a blue block,false,"p(N) :- N = #count{B: memberOfTower(X,B), memberOfTower(Y,B), has(X,color,C1), has(Y,color,C2), onTop(Y,X)}, C1=yellow, C2=blue.                                                                      
+:- p(0).",
+test-3691-3.png,there is one tower which has a yellow block above a blue block,false,"p(N) :- N = #count{B: memberOfTower(X,B), memberOfTower(Y,B), has(X,color,C1), has(Y,color,C2), onTop(Y,X)}, C1=yellow, C2=blue.                                                                      
+:- p(0).",
+test-3747-0.png,there is exactly one tower with a blue block at the base,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- not p(1).",
+test-3747-1.png,there is exactly one tower with a blue block at the base,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- not p(1).",
+test-3747-2.png,there is exactly one tower with a blue block at the base,false,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- not p(1).",
+test-3747-3.png,there is exactly one tower with a blue block at the base,false,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- not p(1).",
+test-3820-0.png,there is at least one tower which has blocks of all three colors,true,FAIL,
+test-3820-1.png,there is at least one tower which has blocks of all three colors,true,FAIL,
+test-3820-2.png,there is at least one tower which has blocks of all three colors,false,FAIL,
+test-3820-3.png,there is at least one tower which has blocks of all three colors,false,FAIL,
+test-3846-0.png,there are two towers with a black block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=black.
+:- p(N), N=0..1.",
+test-3846-1.png,there are two towers with a black block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=black.
+:- p(N), N=0..1.",
+test-3846-2.png,there are two towers with a black block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=black.
+:- p(N), N=0..1.",
+test-3846-3.png,there are two towers with a black block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=black.
+:- p(N), N=0..1.",
+test-3859-0.png,there is a tower which has a yellow block at the base,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=yellow.
+:- p(0).",
+test-3859-1.png,there is a tower which has a yellow block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=yellow.
+:- p(0).",
+test-3859-2.png,there is a tower which has a yellow block at the base,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=yellow.
+:- p(0).",
+test-3859-3.png,there is a tower which has a yellow block at the base,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=yellow.
+:- p(0).",
+test-3974-0.png,there is exactly one tower with a black block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=black.
+:- not p(1).",
+test-3974-1.png,there is exactly one tower with a black block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=black.
+:- not p(1).",
+test-3974-2.png,there is exactly one tower with a black block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=black.
+:- not p(1).",
+test-4005-0.png,there is atleast one tower with exactly  two blocks having a blue block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=blue, Si1=2.
+:- p(0).",
+test-4005-1.png,there is atleast one tower with exactly  two blocks having a blue block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=blue, Si1=2.
+:- p(0).",
+test-4005-2.png,there is atleast one tower with exactly  two blocks having a blue block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=blue, Si1=2.
+:- p(0).",
+test-4005-3.png,there is atleast one tower with exactly  two blocks having a blue block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=blue, Si1=2.
+:- p(0).",
+test-4031-0.png,there is exactly one tower with four blocks having blocks of all three colors,true,FAIL,
+test-4031-1.png,there is exactly one tower with four blocks having blocks of all three colors,true,FAIL,
+test-4031-2.png,there is exactly one tower with four blocks having blocks of all three colors,false,FAIL,
+test-4031-3.png,there is exactly one tower with four blocks having blocks of all three colors,false,FAIL,
+test-4042-0.png,There is a tower with a black block at the top and a yellow block at the base,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), botOfTower(Y,B), has(Y,color,C2)}, C1=black, C2=yellow.
+:- p(0).",
+test-4042-1.png,There is a tower with a black block at the top and a yellow block at the base,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), botOfTower(Y,B), has(Y,color,C2)}, C1=black, C2=yellow.
+:- p(0).",
+test-4042-2.png,There is a tower with a black block at the top and a yellow block at the base,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), botOfTower(Y,B), has(Y,color,C2)}, C1=black, C2=yellow.
+:- p(0).",
+test-4042-3.png,There is a tower with a black block at the top and a yellow block at the base,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), botOfTower(Y,B), has(Y,color,C2)}, C1=black, C2=yellow.
+:- p(0).",
+test-566-0.png,There is a box with 4 items of different shape and all 3 different colors.,false,FAIL,
+test-566-1.png,There is a box with 4 items of different shape and all 3 different colors.,true,FAIL,
+test-566-2.png,There is a box with 4 items of different shape and all 3 different colors.,false,FAIL,
+test-566-3.png,There is a box with 4 items of different shape and all 3 different colors.,false,FAIL,
+test-645-0.png,There is a box with only blue and yellow items.,true,"p(N) :- N = #count{Y: item(X), inBox(X,Y), 1 {has(X,color,C1), has(X,color,C2)} 1}, C1=blue, C2=yellow.
+:- p(0).",
+test-645-1.png,There is a box with only blue and yellow items.,true,"p(N) :- N = #count{Y: item(X), inBox(X,Y), 1 {has(X,color,C1), has(X,color,C2)} 1}, C1=blue, C2=yellow.
+:- p(0).",
+test-645-2.png,There is a box with only blue and yellow items.,false,"p(N) :- N = #count{Y: item(X), inBox(X,Y), 1 {has(X,color,C1), has(X,color,C2)} 1}, C1=blue, C2=yellow.
+:- p(0).",
+test-645-3.png,There is a box with only blue and yellow items.,false,"p(N) :- N = #count{Y: item(X), inBox(X,Y), 1 {has(X,color,C1), has(X,color,C2)} 1}, C1=blue, C2=yellow.
+:- p(0).",
+test-646-0.png,There is a box with only 2 items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- not p(M,N), M=2, N=1.",
+test-646-1.png,There is a box with only 2 items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- not p(M,N), M=2, N=1.",
+test-646-2.png,There is a box with only 2 items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- not p(M,N), M=2, N=1.",
+test-646-3.png,There is a box with only 2 items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- not p(M,N), M=2, N=1.",
+test-100-0.png,There are 2 blue squares,true,"p(N) :- N = #count{X: has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- p(N), N=0..1.",
+test-100-1.png,There are 2 blue squares,true,"p(N) :- N = #count{X: has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- p(N), N=0..1.",
+test-100-2.png,There are 2 blue squares,true,"p(N) :- N = #count{X: has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- p(N), N=0..1.",
+test-100-3.png,There are 2 blue squares,true,"p(N) :- N = #count{X: has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- p(N), N=0..1.",
+test-1088-0.png,"There is a box with a black triangle, a blue square and a blue circle.",true,"p(N) :- N = #count{Y: item(X), has(X,color,C1), has(X,shape,S1), item(Z), has(X,color,C2), has(X,shape,S2), item(W), has(X,color,C3), has(X,shape,S3) }, C1=black,S1=triangle, C2=blue, S2=square, C3=blue, S3=circle.
+:- p(0).",
+test-1088-1.png,"There is a box with a black triangle, a blue square and a blue circle.",true,"p(N) :- N = #count{Y: item(X), has(X,color,C1), has(X,shape,S1), item(Z), has(X,color,C2), has(X,shape,S2), item(W), has(X,color,C3), has(X,shape,S3) }, C1=black,S1=triangle, C2=blue, S2=square, C3=blue, S3=circle.
+:- p(0).",
+test-1088-2.png,"There is a box with a black triangle, a blue square and a blue circle.",false,"p(N) :- N = #count{Y: item(X), has(X,color,C1), has(X,shape,S1), item(Z), has(X,color,C2), has(X,shape,S2), item(W), has(X,color,C3), has(X,shape,S3) }, C1=black,S1=triangle, C2=blue, S2=square, C3=blue, S3=circle.
+:- p(0).",
+test-1088-3.png,"There is a box with a black triangle, a blue square and a blue circle.",false,"p(N) :- N = #count{Y: item(X), has(X,color,C1), has(X,shape,S1), item(Z), has(X,color,C2), has(X,shape,S2), item(W), has(X,color,C3), has(X,shape,S3) }, C1=black,S1=triangle, C2=blue, S2=square, C3=blue, S3=circle.
+:- p(0).",
+test-1231-0.png,There is a box with a yellow circle and at least one black item.,true,"p(M,N,O) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), item(Z), has(X,color,C2),inBox(Z,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Y:  item(Z), has(X,color,C2)}, C1=yellow, S1=circle, C2=black.
+:- p(M,N,O), M=0, N=0, O=0.",
+test-1231-1.png,There is a box with a yellow circle and at least one black item.,true,"p(M,N,O) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), item(Z), has(X,color,C2),inBox(Z,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Y:  item(Z), has(X,color,C2)}, C1=yellow, S1=circle, C2=black.
+:- p(M,N,O), M=0, N=0, O=0.",
+test-1231-2.png,There is a box with a yellow circle and at least one black item.,false,"p(M,N,O) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), item(Z), has(X,color,C2),inBox(Z,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Y:  item(Z), has(X,color,C2)}, C1=yellow, S1=circle, C2=black.
+:- p(M,N,O), M=0, N=0, O=0.",
+test-1231-3.png,There is a box with a yellow circle and at least one black item.,false,"p(M,N,O) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), item(Z), has(X,color,C2),inBox(Z,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Y:  item(Z), has(X,color,C2)}, C1=yellow, S1=circle, C2=black.
+:- p(M,N,O), M=0, N=0, O=0.",
+test-1940-0.png,there is a blue object touching the base,true,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1)}, C1=blue, D1=bottom.
+:- p(0).",
+test-1940-1.png,there is a blue object touching the base,true,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1)}, C1=blue, D1=bottom.
+:- p(0).",
+test-1940-2.png,there is a blue object touching the base,false,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1)}, C1=blue, D1=bottom.
+:- p(0).",
+test-1940-3.png,there is a blue object touching the base,false,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1)}, C1=blue, D1=bottom.
+:- p(0).",
+test-2094-0.png,There are 2 blue blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2094-1.png,There are 2 blue blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2094-2.png,There are 2 blue blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2094-3.png,There are 2 blue blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2141-0.png,There are 2 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..1.",
+test-2141-1.png,There are 2 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..1.",
+test-2141-2.png,There are 2 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..1.",
+test-2141-3.png,There are 2 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..1.",
+test-2175-0.png,There is at least 1 tower with a yellow block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=yellow.
+:- p(0).",
+test-2175-1.png,There is at least 1 tower with a yellow block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=yellow.
+:- p(0).",
+test-2175-2.png,There is at least 1 tower with a yellow block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=yellow.
+:- p(0).",
+test-2187-0.png,There are 2 blue blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2187-1.png,There are 2 blue blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2187-2.png,There are 2 blue blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2187-3.png,There are 2 blue blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2198-0.png,There is 1 tower with only yellow blocks,true,"p(M) :- M = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(0).",
+test-2198-1.png,There is 1 tower with only yellow blocks,true,"p(M) :- M = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(0).",
+test-2198-3.png,There is 1 tower with only yellow blocks,true,"p(M) :- M = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(0).",
+test-2232-0.png,There is 1 tower with at least 1 yellow block in it,true,"p(M,N) :- M = #count{Y: block(X),has(X,color,C1),memberOfTower(X,Y)}, N = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0, N=0.",
+test-2232-1.png,There is 1 tower with at least 1 yellow block in it,true,"p(M,N) :- M = #count{Y: block(X),has(X,color,C1),memberOfTower(X,Y)}, N = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0, N=0.",
+test-2232-2.png,There is 1 tower with at least 1 yellow block in it,true,"p(M,N) :- M = #count{Y: block(X),has(X,color,C1),memberOfTower(X,Y)}, N = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0, N=0.",
+test-228-0.png,There are 2 yellow squares,true,"p(N) :- N = #count{X: has(X,shape,S1), has(X,color,C1)}, C1=yellow, S1=square.
+:- p(N), N=0..1.",
+test-228-1.png,There are 2 yellow squares,true,"p(N) :- N = #count{X: has(X,shape,S1), has(X,color,C1)}, C1=yellow, S1=square.
+:- p(N), N=0..1.",
+test-228-2.png,There are 2 yellow squares,true,"p(N) :- N = #count{X: has(X,shape,S1), has(X,color,C1)}, C1=yellow, S1=square.
+:- p(N), N=0..1.",
+test-228-3.png,There are 2 yellow squares,true,"p(N) :- N = #count{X: has(X,shape,S1), has(X,color,C1)}, C1=yellow, S1=square.
+:- p(N), N=0..1.",
+test-2423-0.png,There are 2 towers with a black block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2423-1.png,There are 2 towers with a black block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2423-2.png,There are 2 towers with a black block at the base,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2423-3.png,There are 2 towers with a black block at the base,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-2512-0.png,There is 1 tower with 1 blue block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-2512-1.png,There is 1 tower with 1 blue block at the top,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-2512-2.png,There is 1 tower with 1 blue block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-2512-3.png,There is 1 tower with 1 blue block at the top,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-2591-0.png,There is a box with only 2 items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-2591-1.png,There is a box with only 2 items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-2591-2.png,There is a box with only 2 items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-2591-3.png,There is a box with only 2 items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-2640-0.png,There are exactly 2 items touching the wall.,false,"p(M) :- M = #count{Y: item(X), touching(X,wall,_)}.
+:- not p(2).",
+test-2640-1.png,There are exactly 2 items touching the wall.,false,"p(M) :- M = #count{Y: item(X), touching(X,wall,_)}.
+:- not p(2).",
+test-2640-2.png,There are exactly 2 items touching the wall.,false,"p(M) :- M = #count{Y: item(X), touching(X,wall,_)}.
+:- not p(2).",
+test-2640-3.png,There are exactly 2 items touching the wall.,false,"p(M) :- M = #count{Y: item(X), touching(X,wall,_)}.
+:- not p(2).",
+test-2885-0.png,There is a four blocks  tower with a black base and the second block is blue.,true,FAIL,"second block from top side or bottom side not specified, numbering of each box individually is not incorporated while creating facts"
+test-2885-1.png,There is a four blocks  tower with a black base and the second block is blue.,true,FAIL,
+test-2885-2.png,There is a four blocks  tower with a black base and the second block is blue.,false,FAIL,
+test-2885-3.png,There is a four blocks  tower with a black base and the second block is blue.,false,FAIL,
+test-2926-0.png,There are two towers that the base are blue.,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2926-1.png,There are two towers that the base are blue.,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2926-2.png,There are two towers that the base are blue.,false,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2926-3.png,There are two towers that the base are blue.,false,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- p(N), N=0..1.",
+test-2963-0.png,The top of a three blocks tower is yellow.,true,"p(N) :- N = #count{B: sizeOfTower(B,Si1) topOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(0).",
+test-2963-1.png,The top of a three blocks tower is yellow.,true,"p(N) :- N = #count{B: sizeOfTower(B,Si1) topOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(0).",
+test-2963-2.png,The top of a three blocks tower is yellow.,false,"p(N) :- N = #count{B: sizeOfTower(B,Si1) topOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(0).",
+test-2963-3.png,The top of a three blocks tower is yellow.,false,"p(N) :- N = #count{B: sizeOfTower(B,Si1) topOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(0).",
+test-3049-0.png,Two of the towers has a blue block under a yellow block,true,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=blue, C2=yellow.
+:- p(N), N=0..1.",
+test-3049-1.png,Two of the towers has a blue block under a yellow block,true,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=blue, C2=yellow.
+:- p(N), N=0..1.",
+test-3049-2.png,Two of the towers has a blue block under a yellow block,false,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=blue, C2=yellow.
+:- p(N), N=0..1.",
+test-3049-3.png,Two of the towers has a blue block under a yellow block,false,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=blue, C2=yellow.
+:- p(N), N=0..1.",
+test-3084-0.png,There is a yellow tower.,true,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=yellow.
+:- p(0).",
+test-3084-1.png,There is a yellow tower.,true,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=yellow.
+:- p(0).",
+test-3084-2.png,There is a yellow tower.,false,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=yellow.
+:- p(0).",
+test-3084-3.png,There is a yellow tower.,false,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=yellow.
+:- p(0).",
+test-3093-0.png,There is a one block tower that the color is not yellow.,true,FAIL,
+test-3093-1.png,There is a one block tower that the color is not yellow.,true,FAIL,
+test-3093-2.png,There is a one block tower that the color is not yellow.,false,FAIL,
+test-3093-3.png,There is a one block tower that the color is not yellow.,false,FAIL,
+test-3133-0.png,There is no blue block as the base of a tower.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=blue.
+:- not p(0).",
+test-3133-1.png,There is no blue block as the base of a tower.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=blue.
+:- not p(0).",
+test-3133-2.png,There is no blue block as the base of a tower.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=blue.
+:- not p(0).",
+test-3133-3.png,There is no blue block as the base of a tower.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=blue.
+:- not p(0).",
+test-3211-0.png,There is exactly one blue block as the top of a tower.,true,"p(N) :- N = #count{X: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- not p(1).",exactly is associated to “one blue block” rather than associating with whole part “one blue block as the top of a tower.”
+test-3211-1.png,There is exactly one blue block as the top of a tower.,true,"p(N) :- N = #count{X: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- not p(1).",
+test-3211-2.png,There is exactly one blue block as the top of a tower.,false,"p(N) :- N = #count{X: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- not p(1).",
+test-3313-0.png,There is a black block as the top of a tower with four blocks.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y), sizeOfTower(Si1,Y)}, C1=black, Si1=4.
+:- p(0).",
+test-3313-1.png,There is a black block as the top of a tower with four blocks.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y), sizeOfTower(Si1,Y)}, C1=black, Si1=4.
+:- p(0).",
+test-3313-2.png,There is a black block as the top of a tower with four blocks.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y), sizeOfTower(Si1,Y)}, C1=black, Si1=4.
+:- p(0).",
+test-3313-3.png,There is a black block as the top of a tower with four blocks.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y), sizeOfTower(Si1,Y)}, C1=black, Si1=4.
+:- p(0).",
+test-3377-0.png,There is a yellow block on a blue block.,true,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=yellow, C2=blue.                                                                      :- p(0).",
+test-3377-1.png,There is a yellow block on a blue block.,true,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=yellow, C2=blue.                                                                      :- p(0).",
+test-3377-2.png,There is a yellow block on a blue block.,false,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=yellow, C2=blue.                                                                      :- p(0).",
+test-3377-3.png,There is a yellow block on a blue block.,false,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=yellow, C2=blue.                                                                      :- p(0).",
+test-3500-2.png,There are two black blocks as the top of a tower with at least two blocks.,false,FAIL,"sizeOfTower is defined as tower with having some integer size, failed as size to be matched is more than 2 blocks"
+test-3500-3.png,There are two black blocks as the top of a tower with at least two blocks.,true,FAIL,
+test-3546-0.png,There is a yellow block as the base of a tower with three blocks.,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=yellow, Si1=3.
+:- p(0).",
+test-3546-1.png,There is a yellow block as the base of a tower with three blocks.,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=yellow, Si1=3.
+:- p(0).",
+test-3546-2.png,There is a yellow block as the base of a tower with three blocks.,false,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=yellow, Si1=3.
+:- p(0).",
+test-3546-3.png,There is a yellow block as the base of a tower with three blocks.,false,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=yellow, Si1=3.
+:- p(0).",
+test-3557-0.png,There is no black block as the top of a tower with at most three blocks.,true,FAIL,"sizeOfTower is defined as tower with having some integer size, failed as size to be matched is more than 2 blocks"
+test-3557-1.png,There is no black block as the top of a tower with at most three blocks.,true,FAIL,
+test-3557-2.png,There is no black block as the top of a tower with at most three blocks.,false,FAIL,
+test-3565-0.png,There is a tower with two blue blocks and at least one black block.,true,"p(M,N,O) :- M = #count{Y: block(X), has(X,color,C1),memberOfTower(X,Y), block(Z), has(Z,color,C2),memberOfTower(Z,Y)}, N = #count{X: block(X), has(X,color,C1)}, O = #count{Z:  item(Z), has(Z,color,C2)}, C1=blue, C2=black.
+:- p(M,N,O), M=0, N=0..1, O=0.",
+test-3565-1.png,There is a tower with two blue blocks and at least one black block.,true,"p(M,N,O) :- M = #count{Y: block(X), has(X,color,C1),memberOfTower(X,Y), block(Z), has(Z,color,C2),memberOfTower(Z,Y)}, N = #count{X: block(X), has(X,color,C1)}, O = #count{Z:  item(Z), has(Z,color,C2)}, C1=blue, C2=black.
+:- p(M,N,O), M=0, N=0..1, O=0.",
+test-3565-2.png,There is a tower with two blue blocks and at least one black block.,false,"p(M,N,O) :- M = #count{Y: block(X), has(X,color,C1),memberOfTower(X,Y), block(Z), has(Z,color,C2),memberOfTower(Z,Y)}, N = #count{X: block(X), has(X,color,C1)}, O = #count{Z:  item(Z), has(Z,color,C2)}, C1=blue, C2=black.
+:- p(M,N,O), M=0, N=0..1, O=0.",
+test-3634-0.png,There is one tower with yellow block above a black block,true,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(Y,X)}, C1=yellow, C2=black.
+:- p(0).",
+test-3634-1.png,There is one tower with yellow block above a black block,true,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(Y,X)}, C1=yellow, C2=black.
+:- p(0).",
+test-3634-2.png,There is one tower with yellow block above a black block,false,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(Y,X)}, C1=yellow, C2=black.
+:- p(0).",
+test-3634-3.png,There is one tower with yellow block above a black block,false,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(Y,X)}, C1=yellow, C2=black.
+:- p(0).",
+test-3767-0.png,there is at least one tower with four blocks with a yellow block as third block,true,FAIL,"third block from top side or bottom side not specified, numbering of each box individually is not incorporated while creating facts"
+test-3767-1.png,there is at least one tower with four blocks with a yellow block as third block,true,FAIL,
+test-3767-2.png,there is at least one tower with four blocks with a yellow block as third block,false,FAIL,
+test-3767-3.png,there is at least one tower with four blocks with a yellow block as third block,false,FAIL,
+test-3864-0.png,there are exactly two towers with a yellow block at the base,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=yellow.
+:- p(2).",
+test-3864-1.png,there are exactly two towers with a yellow block at the base,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=yellow.
+:- p(2).",
+test-3864-2.png,there are exactly two towers with a yellow block at the base,false,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=yellow.
+:- p(2).",
+test-3864-3.png,there are exactly two towers with a yellow block at the base,false,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=yellow.
+:- p(2).",
+test-3886-0.png,there is a tower with exactly one block which is not of black color,true,"p(N) :- N = #count{B: block(X), has(X,color,C1), sizeOfTower(Si1,B)}, C1=black, Si1=1.
+:- not p(0).",
+test-3886-1.png,there is a tower with exactly one block which is not of black color,true,"p(N) :- N = #count{B: block(X), has(X,color,C1), sizeOfTower(Si1,B)}, C1=black, Si1=1.
+:- not p(0).",
+test-3886-2.png,there is a tower with exactly one block which is not of black color,false,"p(N) :- N = #count{B: block(X), has(X,color,C1), sizeOfTower(Si1,B)}, C1=black, Si1=1.
+:- not p(0).",
+test-3886-3.png,there is a tower with exactly one block which is not of black color,false,"p(N) :- N = #count{B: block(X), has(X,color,C1), sizeOfTower(Si1,B)}, C1=black, Si1=1.
+:- not p(0).",
+test-3902-0.png,there is a tower with exactly two blocks with a blue block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=blue, Si1=2.
+:- p(0).",
+test-3902-1.png,there is a tower with exactly two blocks with a blue block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=blue, Si1=2.
+:- p(0).",
+test-3902-2.png,there is a tower with exactly two blocks with a blue block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=blue, Si1=2.
+:- p(0).",
+test-3902-3.png,there is a tower with exactly two blocks with a blue block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=blue, Si1=2.
+:- p(0).",
+test-4095-0.png,There is exactly one tower with a yellow block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=yellow.
+:- p(1).",
+test-4095-1.png,There is exactly one tower with a yellow block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=yellow.
+:- p(1).",
+test-4095-2.png,There is exactly one tower with a yellow block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=yellow.
+:- p(1).",
+test-4095-3.png,There is exactly one tower with a yellow block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=yellow.
+:- p(1).",
+test-545-0.png,Two blue items are touching the wall.,false,"p(N) :- N = #count{X: item(X),touching(X,wall,_),}, C1=blue.
+:- p(N), N=0..1.",
+test-545-1.png,Two blue items are touching the wall.,true,"p(N) :- N = #count{X: item(X),touching(X,wall,_),}, C1=blue.
+:- p(N), N=0..1.",
+test-545-2.png,Two blue items are touching the wall.,false,"p(N) :- N = #count{X: item(X),touching(X,wall,_),}, C1=blue.
+:- p(N), N=0..1.",
+test-545-3.png,Two blue items are touching the wall.,false,"p(N) :- N = #count{X: item(X),touching(X,wall,_),}, C1=blue.
+:- p(N), N=0..1.",
+test-717-0.png,There is a box with seven items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=7, N=1.",
+test-717-1.png,There is a box with seven items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=7, N=1.",
+test-717-2.png,There is a box with seven items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=7, N=1.",
+test-717-3.png,There is a box with seven items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=7, N=1.",
+test-979-0.png,"There is a box with a blue circle, a black circle and other items.",true,FAIL,“other items” not defined
+test-979-1.png,"There is a box with a blue circle, a black circle and other items.",true,FAIL,
+test-979-2.png,"There is a box with a blue circle, a black circle and other items.",false,FAIL,
+test-979-3.png,"There is a box with a blue circle, a black circle and other items.",false,FAIL,
+test-1032-0.png,"There is a box with a yellow circle, a black circle and a black triangle.",true,"p(M,N,O,P) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), has(Z,color,C2),has(Z,shape,S2),inBox(Z,Y), has(W,color,C3), has(W,shape,C3), inBox(W,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Z: has(Z,color,C2),has(Z,shape,S2)}, P = #count{item(W), has(W,color,C3), item(V), has(V,color,C3)}, C1=yellow, S1=circle, C2=black, S2=circle, C3=black, S3=triangle.
+:- p(M,N,O,P), M=0, N=0, O=0, P=0.",
+test-1032-1.png,"There is a box with a yellow circle, a black circle and a black triangle.",true,"p(M,N,O,P) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), has(Z,color,C2),has(Z,shape,S2),inBox(Z,Y), has(W,color,C3), has(W,shape,C3), inBox(W,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Z: has(Z,color,C2),has(Z,shape,S2)}, P = #count{item(W), has(W,color,C3), item(V), has(V,color,C3)}, C1=yellow, S1=circle, C2=black, S2=circle, C3=black, S3=triangle.
+:- p(M,N,O,P), M=0, N=0, O=0, P=0.",
+test-1032-2.png,"There is a box with a yellow circle, a black circle and a black triangle.",false,"p(M,N,O,P) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), has(Z,color,C2),has(Z,shape,S2),inBox(Z,Y), has(W,color,C3), has(W,shape,C3), inBox(W,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Z: has(Z,color,C2),has(Z,shape,S2)}, P = #count{item(W), has(W,color,C3), item(V), has(V,color,C3)}, C1=yellow, S1=circle, C2=black, S2=circle, C3=black, S3=triangle.
+:- p(M,N,O,P), M=0, N=0, O=0, P=0.",
+test-1032-3.png,"There is a box with a yellow circle, a black circle and a black triangle.",false,"p(M,N,O,P) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), has(Z,color,C2),has(Z,shape,S2),inBox(Z,Y), has(W,color,C3), has(W,shape,C3), inBox(W,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Z: has(Z,color,C2),has(Z,shape,S2)}, P = #count{item(W), has(W,color,C3), item(V), has(V,color,C3)}, C1=yellow, S1=circle, C2=black, S2=circle, C3=black, S3=triangle.
+:- p(M,N,O,P), M=0, N=0, O=0, P=0.",
+test-1110-0.png,"There is a box with a yellow circle, a yellow square and two black items.",true,"p(M,N,O,P) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), has(Z,color,C2),has(Z,shape,S2),inBox(Z,Y), item(W), has(W,color,C3), inBox(W,Y), item(V), has(V,color,C3), inBox(V,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Z: has(Z,color,C2),has(Z,shape,S2)}, P = #count{item(W), has(W,color,C3), item(V), has(V,color,C3)}, C1=yellow, S1=circle, C2=yellow, S2=square, C3=black.
+:- p(M,N,O,P), M=0, N=0, O=0, P=0..1.",
+test-1110-1.png,"There is a box with a yellow circle, a yellow square and two black items.",true,"p(M,N,O,P) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), has(Z,color,C2),has(Z,shape,S2),inBox(Z,Y), item(W), has(W,color,C3), inBox(W,Y), item(V), has(V,color,C3), inBox(V,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Z: has(Z,color,C2),has(Z,shape,S2)}, P = #count{item(W), has(W,color,C3), item(V), has(V,color,C3)}, C1=yellow, S1=circle, C2=yellow, S2=square, C3=black.
+:- p(M,N,O,P), M=0, N=0, O=0, P=0..1.",
+test-1110-2.png,"There is a box with a yellow circle, a yellow square and two black items.",false,"p(M,N,O,P) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), has(Z,color,C2),has(Z,shape,S2),inBox(Z,Y), item(W), has(W,color,C3), inBox(W,Y), item(V), has(V,color,C3), inBox(V,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Z: has(Z,color,C2),has(Z,shape,S2)}, P = #count{item(W), has(W,color,C3), item(V), has(V,color,C3)}, C1=yellow, S1=circle, C2=yellow, S2=square, C3=black.
+:- p(M,N,O,P), M=0, N=0, O=0, P=0..1.",
+test-1110-3.png,"There is a box with a yellow circle, a yellow square and two black items.",false,"p(M,N,O,P) :- M = #count{Y: has(X,color,C1),has(X,shape,S1),inBox(X,Y), has(Z,color,C2),has(Z,shape,S2),inBox(Z,Y), item(W), has(W,color,C3), inBox(W,Y), item(V), has(V,color,C3), inBox(V,Y)}, N = #count{X: has(X,color,C1),has(X,shape,S1)}, O = #count{Z: has(Z,color,C2),has(Z,shape,S2)}, P = #count{item(W), has(W,color,C3), item(V), has(V,color,C3)}, C1=yellow, S1=circle, C2=yellow, S2=square, C3=black.
+:- p(M,N,O,P), M=0, N=0, O=0, P=0..1.",
+test-15-0.png,There is a yellow circle close to a corner,true,"p(M) :- M = #count{X: touchingCClose(X), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- not p(0).","Closely touching is defined, not only “close” is defined"
+test-15-1.png,There is a yellow circle close to a corner,true,"p(M) :- M = #count{X: touchingCClose(X), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- not p(0).",
+test-15-2.png,There is a yellow circle close to a corner,false,"p(M) :- M = #count{X: touchingCClose(X), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- not p(0).",
+test-15-3.png,There is a yellow circle close to a corner,false,"p(M) :- M = #count{X: touchingCClose(X), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- not p(0).",
+test-1923-0.png,None of the blue circles are touching any edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=blue, S1=circle.
+:- not p(0).",
+test-1923-1.png,None of the blue circles are touching any edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=blue, S1=circle.
+:- not p(0).",
+test-1923-2.png,None of the blue circles are touching any edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=blue, S1=circle.
+:- not p(0).",
+test-1923-3.png,None of the blue circles are touching any edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=blue, S1=circle.
+:- not p(0).",
+test-1949-0.png,There is exactly one black square not touching any edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- not p(1).",
+test-1949-1.png,There is exactly one black square not touching any edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- not p(1).",
+test-1949-2.png,There is exactly one black square not touching any edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- not p(1).",
+test-1949-3.png,There is exactly one black square not touching any edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- not p(1).",
+test-2082-0.png,There is 1 tower with 2 yellow blocks,true,"p(M,N) :- M = #count{X: has(X,color,C1)}, N = #count{Y: has(X,color,C1), memberOfTower(X,Y)}, C1=yellow.
+:- p(M,N), M=2, N=0.",
+test-2082-1.png,There is 1 tower with 2 yellow blocks,true,"p(M,N) :- M = #count{X: has(X,color,C1)}, N = #count{Y: has(X,color,C1), memberOfTower(X,Y)}, C1=yellow.
+:- p(M,N), M=2, N=0.",
+test-2082-2.png,There is 1 tower with 2 yellow blocks,true,"p(M,N) :- M = #count{X: has(X,color,C1)}, N = #count{Y: has(X,color,C1), memberOfTower(X,Y)}, C1=yellow.
+:- p(M,N), M=2, N=0.",
+test-2082-3.png,There is 1 tower with 2 yellow blocks,false,"p(M,N) :- M = #count{X: has(X,color,C1)}, N = #count{Y: has(X,color,C1), memberOfTower(X,Y)}, C1=yellow.
+:- p(M,N), M=2, N=0.",
+test-2098-0.png,There are 3 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..2.",
+test-2098-1.png,There are 3 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..2.",
+test-2098-2.png,There are 3 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..2.",
+test-2098-3.png,There are 3 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..2.",
+test-2173-0.png,There is 1 tower with a black block at the bottom,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=black.
+:- p(0).",
+test-2173-1.png,There is 1 tower with a black block at the bottom,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=black.
+:- p(0).",
+test-2173-2.png,There is 1 tower with a black block at the bottom,true,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=black.
+:- p(0).",
+test-2173-3.png,There is 1 tower with a black block at the bottom,false,"p(N) :- N = #count{B: botOfTower(X,B), has(X,color,C1)}, C1=black.
+:- p(0).",
+test-2178-0.png,There are 2 yellow blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(N), N=0..1.",
+test-2178-1.png,There are 2 yellow blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(N), N=0..1.",
+test-2178-2.png,There are 2 yellow blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(N), N=0..1.",
+test-2178-3.png,There are 2 yellow blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(N), N=0..1.",
+test-2223-0.png,There is 1 tower with a black block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=black.
+:- p(0).",
+test-2223-1.png,There is 1 tower with a black block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=black.
+:- p(0).",
+test-2223-2.png,There is 1 tower with a black block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=black.
+:- p(0).",
+test-2230-0.png,There is 1 tower with a blue block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- p(0).",
+test-2230-1.png,There is 1 tower with a blue block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- p(0).",
+test-2230-3.png,There is 1 tower with a blue block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- p(0).",
+test-2461-0.png,There is 1 tower with 1 blue block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- p(0).",
+test-2461-1.png,There is 1 tower with 1 blue block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- p(0).",
+test-2461-2.png,There is 1 tower with 1 blue block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- p(0).",
+test-2461-3.png,There is 1 tower with 1 blue block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1)}, C1=blue.
+:- p(0).",
+test-2473-0.png,There  is 1 tower with at least 1 yellow block in it,true,FAIL,
+test-2473-1.png,There  is 1 tower with at least 1 yellow block in it,true,FAIL,
+test-2473-2.png,There  is 1 tower with at least 1 yellow block in it,true,FAIL,
+test-2475-2.png,There is 1 tower with 3 blocks of the same colour,false,,
+test-2475-3.png,There is 1 tower with 3 blocks of the same colour,true,,
+test-2546-0.png,There is a box with 3 squares of different color.,false,,
+test-2546-1.png,There is a box with 3 squares of different color.,true,,
+test-2546-2.png,There is a box with 3 squares of different color.,false,,
+test-2546-3.png,There is a box with 3 squares of different color.,false,,
+test-2603-0.png,There is a box with 2 items and a yellow item on top.,true,"p(N) :- N = #count{X: inBox(X,B), onTop(Y,B), has(Y,color,C1)}, C1=yellow.
+:- p(2).",
+test-2603-1.png,There is a box with 2 items and a yellow item on top.,true,"p(N) :- N = #count{X: inBox(X,B), onTop(Y,B), has(Y,color,C1)}, C1=yellow.
+:- p(2).",
+test-2603-2.png,There is a box with 2 items and a yellow item on top.,false,"p(N) :- N = #count{X: inBox(X,B), onTop(Y,B), has(Y,color,C1)}, C1=yellow.
+:- p(2).",
+test-2603-3.png,There is a box with 2 items and a yellow item on top.,false,"p(N) :- N = #count{X: inBox(X,B), onTop(Y,B), has(Y,color,C1)}, C1=yellow.
+:- p(2).",
+test-2605-0.png,There is a box with 3 items and a yellow item on top.,true,"p(N) :- N = #count{X: inBox(X,B), onTop(Y,B), has(Y,color,C1)}, C1=yellow.
+:- p(3).",
+test-2605-1.png,There is a box with 3 items and a yellow item on top.,true,"p(N) :- N = #count{X: inBox(X,B), onTop(Y,B), has(Y,color,C1)}, C1=yellow.
+:- p(3).",
+test-2605-2.png,There is a box with 3 items and a yellow item on top.,false,"p(N) :- N = #count{X: inBox(X,B), onTop(Y,B), has(Y,color,C1)}, C1=yellow.
+:- p(3).",
+test-2605-3.png,There is a box with 3 items and a yellow item on top.,false,"p(N) :- N = #count{X: inBox(X,B), onTop(Y,B), has(Y,color,C1)}, C1=yellow.
+:- p(3).",
+test-2625-0.png,"There is a box with 4 items of which two are blue, one is yellow and one is black.",true,FAIL,"Not enough representation complexity the system can handle to represent this query, it is not able to map the fact that among all items, 4 are such that properties for them are listed along in the sentence"
+test-2625-1.png,"There is a box with 4 items of which two are blue, one is yellow and one is black.",true,FAIL,
+test-2625-2.png,"There is a box with 4 items of which two are blue, one is yellow and one is black.",false,FAIL,
+test-2625-3.png,"There is a box with 4 items of which two are blue, one is yellow and one is black.",false,FAIL,
+test-2645-2.png,There is a box with 4 black and bule items where the blue item is touching the wall.,false,FAIL,"“4 black and bule” not understood as 4 items either of blue or black, interpreted as 4 black and non-cardinal black item"
+test-2645-3.png,There is a box with 4 black and bule items where the blue item is touching the wall.,false,FAIL,
+test-2671-0.png,There is a box with 4 items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=4, N=1.",
+test-2671-1.png,There is a box with 4 items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=4, N=1.",
+test-2671-2.png,There is a box with 4 items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=4, N=1.",
+test-2671-3.png,There is a box with 4 items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=4, N=1.",
+test-2716-0.png,There are two boxes with items of all 3 different colors.,true,FAIL,
+test-2716-1.png,There are two boxes with items of all 3 different colors.,true,FAIL,
+test-2716-2.png,There are two boxes with items of all 3 different colors.,false,FAIL,
+test-2716-3.png,There are two boxes with items of all 3 different colors.,false,FAIL,
+test-2779-0.png,There is a box with 4 items of which 3 are black.,true,,
+test-2779-1.png,There is a box with 4 items of which 3 are black.,true,,
+test-2779-2.png,There is a box with 4 items of which 3 are black.,false,,
+test-2779-3.png,There is a box with 4 items of which 3 are black.,false,,
+test-2840-0.png,There is a blue tower.,true,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=blue.
+:- p(0).",
+test-2840-2.png,There is a blue tower.,false,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=blue.
+:- p(0).",
+test-2840-3.png,There is a blue tower.,false,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=blue.
+:- p(0).",
+test-2844-0.png,There is a yellow tower.,true,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=yellow.
+:- p(0).",
+test-2844-1.png,There is a yellow tower.,true,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=yellow.
+:- p(0).",
+test-2844-2.png,There is a yellow tower.,false,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=yellow.
+:- p(0).",
+test-2844-3.png,There is a yellow tower.,false,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=yellow.
+:- p(0).",
+test-2858-0.png,There is black block that attached only to blue black.,true,FAIL,“attached only” not defined
+test-2858-1.png,There is black block that attached only to blue black.,true,FAIL,
+test-2858-2.png,There is black block that attached only to blue black.,false,FAIL,
+test-2858-3.png,There is black block that attached only to blue black.,false,FAIL,
+test-2899-0.png,There are two towers that are the same in height.,true,FAIL,"similarity of “heights” not defined, "
+test-2899-1.png,There are two towers that are the same in height.,true,FAIL,
+test-2899-2.png,There are two towers that are the same in height.,false,FAIL,
+test-2899-3.png,There are two towers that are the same in height.,false,FAIL,
+test-295-0.png,black triangle and a black circle are together in 1 box,true,FAIL,“together” not defined
+test-295-1.png,black triangle and a black circle are together in 1 box,true,FAIL,
+test-295-2.png,black triangle and a black circle are together in 1 box,false,FAIL,
+test-295-3.png,black triangle and a black circle are together in 1 box,true,FAIL,
+test-3457-0.png,There is a tower with only two blocks.,true,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y)}, Si1=2.
+:- p(0).",
+test-3457-1.png,There is a tower with only two blocks.,true,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y)}, Si1=2.
+:- p(0).",
+test-3457-2.png,There is a tower with only two blocks.,false,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y)}, Si1=2.
+:- p(0).",
+test-3457-3.png,There is a tower with only two blocks.,false,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y)}, Si1=2.
+:- p(0).",
+test-352-0.png,There are 2 items closely touching a corner,false,"p(M) :- M = #count{X: item(X), touchingCClose(X),}
+:- p(M), M=0..1.",
+test-352-1.png,There are 2 items closely touching a corner,true,"p(M) :- M = #count{X: item(X), touchingCClose(X),}
+:- p(M), M=0..1.",
+test-352-2.png,There are 2 items closely touching a corner,false,"p(M) :- M = #count{X: item(X), touchingCClose(X),}
+:- p(M), M=0..1.",
+test-352-3.png,There are 2 items closely touching a corner,false,"p(M) :- M = #count{X: item(X), touchingCClose(X),}
+:- p(M), M=0..1.",
+test-3602-0.png,There is at least one blue block on a black block.,true,FAIL,semantic parsing failing
+test-3602-1.png,There is at least one blue block on a black block.,true,FAIL,
+test-3602-2.png,There is at least one blue block on a black block.,false,FAIL,
+test-3602-3.png,There is at least one blue block on a black block.,false,FAIL,
+test-3776-0.png,There is a tower with exactly two blocks having a black block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=black, Si1=2.
+:- p(0).",
+test-3776-1.png,There is a tower with exactly two blocks having a black block at the top,true,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=black, Si1=2.
+:- p(0).",
+test-3776-2.png,There is a tower with exactly two blocks having a black block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=black, Si1=2.
+:- p(0).",
+test-3776-3.png,There is a tower with exactly two blocks having a black block at the top,false,"p(N) :- N = #count{B: topOfTower(X,B), has(X,color,C1), sizeOfTower(Si1,B)}, C1=black, Si1=2.
+:- p(0).",
+test-3922-0.png,the tower with four blocks has atleast one yellow block,true,"p(M) :- M = #count{X: sizeOfTower(Si1,X), block(Y), memberOfTower(Y,X)}, Si1=4, C1=yellow.
+:- p(0).",
+test-3922-1.png,the tower with four blocks has atleast one yellow block,true,"p(M) :- M = #count{X: sizeOfTower(Si1,X), block(Y), memberOfTower(Y,X)}, Si1=4, C1=yellow.
+:- p(0).",
+test-3922-2.png,the tower with four blocks has atleast one yellow block,false,"p(M) :- M = #count{X: sizeOfTower(Si1,X), block(Y), memberOfTower(Y,X)}, Si1=4, C1=yellow.
+:- p(0).",
+test-3922-3.png,the tower with four blocks has atleast one yellow block,false,"p(M) :- M = #count{X: sizeOfTower(Si1,X), block(Y), memberOfTower(Y,X)}, Si1=4, C1=yellow.
+:- p(0).",
+test-3944-0.png,there is exactly one tower with a blue block over a yellow block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=yellow.                                                                      :- p(1).",
+test-3944-1.png,there is exactly one tower with a blue block over a yellow block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=yellow.                                                                      :- p(1).",
+test-3944-2.png,there is exactly one tower with a blue block over a yellow block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=yellow.                                                                      :- p(1).",
+test-3944-3.png,there is exactly one tower with a blue block over a yellow block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=yellow.                                                                      :- p(1).",
+test-4000-0.png,there is one tower with a blue block over a black block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=yellow.                                                                      :- p(1).",
+test-4000-1.png,there is one tower with a blue block over a black block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=black.                                                                      :- p(0).",
+test-4000-2.png,there is one tower with a blue block over a black block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=black.                                                                      :- p(0).",
+test-4000-3.png,there is one tower with a blue block over a black block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=black.                                                                      :- p(0).",
+test-4117-0.png,at least one tower with three blocks has a yellow block at the base,true,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y), block(X), onBottom(X,Y), has(X,color,C1)}, Si1=3, C1=yellow.                                                                      :- p(0).",
+test-4117-1.png,at least one tower with three blocks has a yellow block at the base,true,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y), block(X), onBottom(X,Y), has(X,color,C1)}, Si1=3, C1=yellow.                                                                      :- p(0).",
+test-4117-2.png,at least one tower with three blocks has a yellow block at the base,false,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y), block(X), onBottom(X,Y), has(X,color,C1)}, Si1=3, C1=yellow.                                                                      :- p(0).",
+test-4117-3.png,at least one tower with three blocks has a yellow block at the base,false,"p(N) :- N = #count{Y: sizeOfTower(Si1,Y), block(X), onBottom(X,Y), has(X,color,C1)}, Si1=3, C1=yellow.                                                                      :- p(0).",
+test-500-0.png,There are two squares of same color but different size touching the wall.,true,,
+test-500-2.png,There are two squares of same color but different size touching the wall.,false,,
+test-500-3.png,There are two squares of same color but different size touching the wall.,false,,
+test-721-0.png,There is a black square touching the corner.,false,"p(N) :- N= #count{X: has(X,color,C1), has(X,shape,S1), touchingC(X)}, C1=black, S1=square.",
+test-721-1.png,There is a black square touching the corner.,false,"p(N) :- N= #count{X: has(X,color,C1), has(X,shape,S1), touchingC(X)}, C1=black, S1=square.",
+test-721-2.png,There is a black square touching the corner.,false,"p(N) :- N= #count{X: has(X,color,C1), has(X,shape,S1), touchingC(X)}, C1=black, S1=square.",
+test-721-3.png,There is a black square touching the corner.,false,"p(N) :- N= #count{X: has(X,color,C1), has(X,shape,S1), touchingC(X)}, C1=black, S1=square.",
+test-926-0.png,There is a box that has two black circles.,true,,
+test-926-1.png,There is a box that has two black circles.,true,,
+test-926-2.png,There is a box that has two black circles.,false,,
+test-926-3.png,There is a box that has two black circles.,false,,
+test-1109-3.png,There is a blue item closely touching the bottom of a box.,false,,
+test-1686-0.png,Each grey box contains atleast two objects of different color touching the edge,true,,
+test-1686-1.png,Each grey box contains atleast two objects of different color touching the edge,true,,
+test-1686-2.png,Each grey box contains atleast two objects of different color touching the edge,false,,
+test-1686-3.png,Each grey box contains atleast two objects of different color touching the edge,false,,
+test-1875-0.png,t least one grey square contains exactly three objects,true,,
+test-1875-1.png,t least one grey square contains exactly three objects,true,,
+test-1875-2.png,t least one grey square contains exactly three objects,false,,
+test-1875-3.png,t least one grey square contains exactly three objects,false,,
+test-2057-0.png,There is exactly one circle touching the edge,true,"p(M) :- M = #count{X: touching(X,wall,_), has(X,shape,S1)}, S1=circle.
+:- not p(1).",
+test-2057-1.png,There is exactly one circle touching the edge,true,"p(M) :- M = #count{X: touching(X,wall,_), has(X,shape,S1)}, S1=circle.
+:- not p(1).",
+test-2057-2.png,There is exactly one circle touching the edge,false,"p(M) :- M = #count{X: touching(X,wall,_), has(X,shape,S1)}, S1=circle.
+:- not p(1).",
+test-2057-3.png,There is exactly one circle touching the edge,false,"p(M) :- M = #count{X: touching(X,wall,_), has(X,shape,S1)}, S1=circle.
+:- not p(1).",
+test-2086-0.png,There are 3 yellow blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(N), N=0..2.",
+test-2086-1.png,There are 3 yellow blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(N), N=0..2.",
+test-2086-2.png,There are 3 yellow blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(N), N=0..2.",
+test-2086-3.png,There are 3 yellow blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=yellow.
+:- p(N), N=0..2.",
+test-2156-0.png,There are at least 4 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..3.",
+test-2156-1.png,There are at least 4 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..3.",
+test-2156-2.png,There are at least 4 black blocks,true,"p(N) :- N = #count{X: block(X),has(X,color,C1)}, C1=black.
+:- p(N), N=0..3.",
+test-2271-0.png,Each tower has at least 1 yellow block,true,,
+test-2271-1.png,Each tower has at least 1 yellow block,true,,
+test-2271-2.png,Each tower has at least 1 yellow block,true,,
+test-2271-3.png,Each tower has at least 1 yellow block,false,,
+test-2324-0.png,Each tower has at least 1 yellow block,true,,
+test-2324-1.png,Each tower has at least 1 yellow block,true,,
+test-2324-2.png,Each tower has at least 1 yellow block,false,,
+test-2324-3.png,Each tower has at least 1 yellow block,true,,
+test-2397-0.png,There is 1 tower with 2 black blocks stacked together,true,,
+test-2397-1.png,There is 1 tower with 2 black blocks stacked together,true,,
+test-2397-2.png,There is 1 tower with 2 black blocks stacked together,false,,
+test-2397-3.png,There is 1 tower with 2 black blocks stacked together,false,,
+test-2413-0.png,There are 2 towers with a yellow block at the top,true,,
+test-2413-1.png,There are 2 towers with a yellow block at the top,true,,
+test-2413-2.png,There are 2 towers with a yellow block at the top,true,,
+test-2413-3.png,There are 2 towers with a yellow block at the top,false,,
+test-2496-0.png,There is 1 tower with 3 blocks stacked together of the same colour,true,,
+test-2496-1.png,There is 1 tower with 3 blocks stacked together of the same colour,true,,
+test-2496-2.png,There is 1 tower with 3 blocks stacked together of the same colour,false,,
+test-2637-1.png,There is a box with 3 items of which some are yellow.,true,,
+test-2637-2.png,There is a box with 3 items of which some are yellow.,false,,
+test-2637-3.png,There is a box with 3 items of which some are yellow.,false,,
+test-2682-0.png,There is a box with 2 items of which one is black.,true,,
+test-2682-1.png,There is a box with 2 items of which one is black.,true,,
+test-2682-2.png,There is a box with 2 items of which one is black.,false,,
+test-2682-3.png,There is a box with 2 items of which one is black.,false,,
+test-2729-0.png,There is a box with 2 items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-2729-1.png,There is a box with 2 items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-2729-2.png,There is a box with 2 items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-2729-3.png,There is a box with 2 items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-2837-0.png,There are two towers with a blue second block.,true,,
+test-2837-1.png,There are two towers with a blue second block.,true,,
+test-2837-2.png,There are two towers with a blue second block.,false,,
+test-2837-3.png,There are two towers with a blue second block.,false,,
+test-2868-0.png,There is a two blocks tower and the base is blue and the top is black.,true,,
+test-2868-1.png,There is a two blocks tower and the base is blue and the top is black.,true,,
+test-2868-2.png,There is a two blocks tower and the base is blue and the top is black.,false,,
+test-2868-3.png,There is a two blocks tower and the base is blue and the top is black.,false,,
+test-2916-0.png,There is a single block blue tower.,true,FAIL,“single block tower” not defined 
+test-2916-1.png,There is a single block blue tower.,true,FAIL,
+test-2916-2.png,There is a single block blue tower.,false,FAIL,
+test-2916-3.png,There is a single block blue tower.,false,FAIL,
+test-2935-0.png,There is a three blocks tower which has one black block that is in the middle.,true,FAIL,
+test-2935-1.png,There is a three blocks tower which has one black block that is in the middle.,true,FAIL,
+test-2935-2.png,There is a three blocks tower which has one black block that is in the middle.,false,FAIL,
+test-2935-3.png,There is a three blocks tower which has one black block that is in the middle.,true,FAIL,
+test-2979-0.png,There is a blue block above a yellow block.,true,"p(N) :- N = #count{X: block(X), has(X,color,C1), block(Y), has(Y,color,C2), onTop(Y,X)}, C1=blue, C2=yellow.                                                                      
+:- p(0).",
+test-2979-1.png,There is a blue block above a yellow block.,true,"p(N) :- N = #count{X: block(X), has(X,color,C1), block(Y), has(Y,color,C2), onTop(Y,X)}, C1=blue, C2=yellow.                                                                      
+:- p(0).",
+test-2979-3.png,There is a blue block above a yellow block.,false,"p(N) :- N = #count{X: block(X), has(X,color,C1), block(Y), has(Y,color,C2), onTop(Y,X)}, C1=blue, C2=yellow.                                                                      
+:- p(0).",
+test-3016-0.png,There is a black block above a yellow block.,true,"p(N) :- N = #count{X: block(X), has(X,color,C1), block(Y), has(Y,color,C2), onTop(Y,X)}, C1=black, C2=yellow.                                                                      
+:- p(0).",
+test-3016-1.png,There is a black block above a yellow block.,true,"p(N) :- N = #count{X: block(X), has(X,color,C1), block(Y), has(Y,color,C2), onTop(Y,X)}, C1=black, C2=yellow.                                                                      
+:- p(0).",
+test-3016-3.png,There is a black block above a yellow block.,false,"p(N) :- N = #count{X: block(X), has(X,color,C1), block(Y), has(Y,color,C2), onTop(Y,X)}, C1=black, C2=yellow.                                                                      
+:- p(0).",
+test-3066-0.png,The top of the three towers are not the same.,true,,
+test-3066-1.png,The top of the three towers are not the same.,true,,
+test-3066-2.png,The top of the three towers are not the same.,false,,
+test-3132-0.png,There is a black block above a yellow block.,true,"p(N) :- N = #count{X: block(X), has(X,color,C1), block(Y), has(Y,color,C2), onTop(Y,X)}, C1=black, C2=yellow.                                                                      
+:- p(0).",
+test-3132-1.png,There is a black block above a yellow block.,true,"p(N) :- N = #count{X: block(X), has(X,color,C1), block(Y), has(Y,color,C2), onTop(Y,X)}, C1=black, C2=yellow.                                                                      
+:- p(0).",
+test-3132-2.png,There is a black block above a yellow block.,false,"p(N) :- N = #count{X: block(X), has(X,color,C1), block(Y), has(Y,color,C2), onTop(Y,X)}, C1=black, C2=yellow.                                                                      
+:- p(0).",
+test-3132-3.png,There is a black block above a yellow block.,false,"p(N) :- N = #count{X: block(X), has(X,color,C1), block(Y), has(Y,color,C2), onTop(Y,X)}, C1=black, C2=yellow.                                                                      
+:- p(0).",
+test-3187-0.png,There is a blue block as the top of a tower.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-3187-1.png,There is a blue block as the top of a tower.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-3187-2.png,There is a blue block as the top of a tower.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-3187-3.png,There is a blue block as the top of a tower.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-3249-0.png,There is a blue block as the base of a tower with three blocks.,true,,
+test-3249-1.png,There is a blue block as the base of a tower with three blocks.,true,,
+test-3249-2.png,There is a blue block as the base of a tower with three blocks.,false,,
+test-3249-3.png,There is a blue block as the base of a tower with three blocks.,false,,
+test-3275-0.png,There is a yellow block as the top of a tower with blue blocks.,true,,
+test-3275-1.png,There is a yellow block as the top of a tower with blue blocks.,true,,
+test-3275-2.png,There is a yellow block as the top of a tower with blue blocks.,false,,
+test-3275-3.png,There is a yellow block as the top of a tower with blue blocks.,false,,
+test-3474-0.png,There is a black tower with only two blocks.,true,,
+test-3474-1.png,There is a black tower with only two blocks.,true,,
+test-3474-2.png,There is a black tower with only two blocks.,false,,
+test-3474-3.png,There is a black tower with only two blocks.,false,,
+test-3544-0.png,There is a tower with four blocks.,true,,
+test-3544-1.png,There is a tower with four blocks.,true,,
+test-3544-2.png,There is a tower with four blocks.,false,,
+test-3544-3.png,There is a tower with four blocks.,false,,
+test-3552-3.png,There are three blocks with yellow blocks.,false,,
+test-3606-0.png,There is a tower with only two yellow blocks.,true,,
+test-3606-1.png,There is a tower with only two yellow blocks.,true,,
+test-3606-2.png,There is a tower with only two yellow blocks.,true,,
+test-3932-0.png,There is a tower with a blue block below a yellow block at the top,true,,
+test-3932-1.png,There is a tower with a blue block below a yellow block at the top,true,,
+test-3932-2.png,There is a tower with a blue block below a yellow block at the top,false,,
+test-3932-3.png,There is a tower with a blue block below a yellow block at the top,false,,
+test-3999-0.png,There is one tower with four blocks with a blue block at the top,true,,
+test-3999-1.png,There is one tower with four blocks with a blue block at the top,true,,
+test-3999-2.png,There is one tower with four blocks with a blue block at the top,false,,
+test-3999-3.png,There is one tower with four blocks with a blue block at the top,false,,
+test-4082-0.png,the tower with four blocks has a blue block at the top,true,,
+test-4082-1.png,the tower with four blocks has a blue block at the top,true,,
+test-4082-2.png,the tower with four blocks has a blue block at the top,false,,
+test-4082-3.png,the tower with four blocks has a blue block at the top,false,,
+test-4090-0.png,there is at least one tower with exactly two blocks having a black block at the base,true,,
+test-4090-1.png,there is at least one tower with exactly two blocks having a black block at the base,true,,
+test-4090-2.png,there is at least one tower with exactly two blocks having a black block at the base,false,,
+test-4090-3.png,there is at least one tower with exactly two blocks having a black block at the base,false,,
+test-4100-0.png,there is one tower which has only yellow blocks,true,,
+test-4100-1.png,there is one tower which has only yellow blocks,true,,
+test-4100-2.png,there is one tower which has only yellow blocks,false,,
+test-4100-3.png,there is one tower which has only yellow blocks,false,,
+test-733-0.png,There is a yellow and blue circle touching the corner.,false,,
+test-733-1.png,There is a yellow and blue circle touching the corner.,false,,
+test-733-2.png,There is a yellow and blue circle touching the corner.,false,,
+test-733-3.png,There is a yellow and blue circle touching the corner.,false,,
+test-82-0.png,There is 1 box with exactly 2 yellow items,true,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=yellow.
+:- p(M,N), M=2, N=1.",
+test-82-1.png,There is 1 box with exactly 2 yellow items,true,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=yellow.
+:- p(M,N), M=2, N=1.",
+test-82-2.png,There is 1 box with exactly 2 yellow items,false,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=yellow.
+:- p(M,N), M=2, N=1.",
+test-82-3.png,There is 1 box with exactly 2 yellow items,false,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=yellow.
+:- p(M,N), M=2, N=1.",
+test-848-0.png,There is a black square that is touching the corner.,false,,
+test-848-1.png,There is a black square that is touching the corner.,true,,
+test-848-2.png,There is a black square that is touching the corner.,false,,
+test-848-3.png,There is a black square that is touching the corner.,false,,
+test-853-0.png,There is a box with four items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=4, N=1.",
+test-853-1.png,There is a box with four items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=4, N=1.",
+test-853-2.png,There is a box with four items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=4, N=1.",
+test-853-3.png,There is a box with four items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=4, N=1.",
+test-1692-0.png,One of the grey box contains either Black or Blue Circles,true,FAIL,“either or” not defined
+test-1692-1.png,One of the grey box contains either Black or Blue Circles,true,FAIL,
+test-1692-2.png,One of the grey box contains either Black or Blue Circles,true,FAIL,
+test-1771-0.png,There are at least three yellow objects touching any edge,false,,
+test-1771-2.png,There are at least three yellow objects touching any edge,true,,
+test-1771-3.png,There are at least three yellow objects touching any edge,false,,
+test-2070-0.png,There are 3 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1)}, C1=black.                                                                    :- p(N), N=0..2.",
+test-2070-1.png,There are 3 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1)}, C1=black.                                                                    :- p(N), N=0..2.",
+test-2070-2.png,There are 3 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1)}, C1=black.                                                                    :- p(N), N=0..2.",
+test-2070-3.png,There are 3 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1)}, C1=black.                                                                    :- p(N), N=0..2.",
+test-2254-0.png,There is 1 tower with a black block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(0).",
+test-2254-1.png,There is 1 tower with a black block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(0).",
+test-2254-2.png,There is 1 tower with a black block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(0).",
+test-2446-0.png,There is at least 1 tower with 2 blue blocks stacked together,true,"p(N) :- #count(Y: block(X), has(X,color,C1), block(Z), has(x,color,C2), stacked(X,Z,Y)}, C1=blue.
+:- p(0).",
+test-2446-1.png,There is at least 1 tower with 2 blue blocks stacked together,true,"p(N) :- #count(Y: block(X), has(X,color,C1), block(Z), has(x,color,C2), stacked(X,Z,Y)}, C1=blue.
+:- p(0).",
+test-2446-2.png,There is at least 1 tower with 2 blue blocks stacked together,false,"p(N) :- #count(Y: block(X), has(X,color,C1), block(Z), has(x,color,C2), stacked(X,Z,Y)}, C1=blue.
+:- p(0).",
+test-2446-3.png,There is at least 1 tower with 2 blue blocks stacked together,true,"p(N) :- #count(Y: block(X), has(X,color,C1), block(Z), has(x,color,C2), stacked(X,Z,Y)}, C1=blue.
+:- p(0).",
+test-2504-0.png,There is at least 1 tower with a black block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- p(0).",
+test-2504-1.png,There is at least 1 tower with a black block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- p(0).",
+test-2504-2.png,There is at least 1 tower with a black block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- p(0).",
+test-2504-3.png,There is at least 1 tower with a black block at the base,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),botOfTower(X,Y)}, C1=black.
+:- p(0).",
+test-2606-0.png,There is a box with items of which there is only one blue item and one black item.,true,,
+test-2606-2.png,There is a box with items of which there is only one blue item and one black item.,false,,
+test-2606-3.png,There is a box with items of which there is only one blue item and one black item.,false,,
+test-2630-0.png,There is a box with only 2 blue and one yellow item.,true,,
+test-2630-1.png,There is a box with only 2 blue and one yellow item.,true,,
+test-2630-2.png,There is a box with only 2 blue and one yellow item.,false,,
+test-2630-3.png,There is a box with only 2 blue and one yellow item.,false,,
+test-2661-0.png,There is a box with 2 black items touching each other.,true,FAIL,
+test-2661-1.png,There is a box with 2 black items touching each other.,true,FAIL,
+test-2661-2.png,There is a box with 2 black items touching each other.,false,FAIL,
+test-2661-3.png,There is a box with 2 black items touching each other.,false,FAIL,
+test-2776-1.png,There is a box with only one yellow item and that item is touching the wall.,true,FAIL,
+test-2776-2.png,There is a box with only one yellow item and that item is touching the wall.,false,FAIL,
+test-2776-3.png,There is a box with only one yellow item and that item is touching the wall.,false,FAIL,
+test-2786-0.png,There is a box with 3 items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=3, N=1.",
+test-2786-1.png,There is a box with 3 items.,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=3, N=1.",
+test-2786-2.png,There is a box with 3 items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=3, N=1.",
+test-2786-3.png,There is a box with 3 items.,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=3, N=1.",
+test-293-0.png,There is 1 blue triangle,false,"p(N) :- N = #count{Y: has(X,color,C1), has(X,shape,S1)}, C1=black, S1=triangle.                                                                    :- p(0).",
+test-293-1.png,There is 1 blue triangle,true,"p(N) :- N = #count{Y: has(X,color,C1), has(X,shape,S1)}, C1=black, S1=triangle.                                                                    :- p(0).",
+test-293-2.png,There is 1 blue triangle,true,"p(N) :- N = #count{Y: has(X,color,C1), has(X,shape,S1)}, C1=black, S1=triangle.                                                                    :- p(0).",
+test-293-3.png,There is 1 blue triangle,false,"p(N) :- N = #count{Y: has(X,color,C1), has(X,shape,S1)}, C1=black, S1=triangle.                                                                    :- p(0).",
+test-2933-0.png,There is a yellow tower with more than one block.,true,,
+test-2933-1.png,There is a yellow tower with more than one block.,true,,
+test-2933-2.png,There is a yellow tower with more than one block.,false,,
+test-2933-3.png,There is a yellow tower with more than one block.,false,,
+test-2981-0.png,There are two the same color blocks attached to a yellow block.,false,,
+test-2981-1.png,There are two the same color blocks attached to a yellow block.,true,,
+test-2981-3.png,There are two the same color blocks attached to a yellow block.,true,,
+test-314-0.png,There are 4 blue items,true,"p(N) :- N = #count{Y: item(X), has(X,color,C1)}, C1=blue.                                                                    :- p(N), N=0..3.",
+test-314-1.png,There are 4 blue items,true,"p(N) :- N = #count{Y: item(X), has(X,color,C1)}, C1=blue.                                                                    :- p(N), N=0..3.",
+test-314-2.png,There are 4 blue items,true,"p(N) :- N = #count{Y: item(X), has(X,color,C1)}, C1=blue.                                                                    :- p(N), N=0..3.",
+test-314-3.png,There are 4 blue items,true,"p(N) :- N = #count{Y: item(X), has(X,color,C1)}, C1=blue.                                                                    :- p(N), N=0..3.",
+test-3251-0.png,There are two blue blocks as the top of a tower with at least two blocks.,true,,
+test-3251-2.png,There are two blue blocks as the top of a tower with at least two blocks.,false,,
+test-3253-0.png,There is a black tower.,true,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=black.
+:- p(0).",
+test-3253-1.png,There is a black tower.,true,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=black.
+:- p(0).",
+test-3253-3.png,There is a black tower.,false,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=black.
+:- p(0).",
+test-3264-0.png,There are at least two blue blocks as the top of a tower.,true,,
+test-3264-2.png,There are at least two blue blocks as the top of a tower.,false,,
+test-3303-0.png,There is no yellow block as the top of a tower.,true,,
+test-3303-1.png,There is no yellow block as the top of a tower.,true,,
+test-3303-2.png,There is no yellow block as the top of a tower.,false,,
+test-3303-3.png,There is no yellow block as the top of a tower.,false,,
+test-3379-0.png,There is a tower with only one black block.,true,,
+test-3379-1.png,There is a tower with only one black block.,true,,
+test-3379-3.png,There is a tower with only one black block.,false,,
+test-3428-0.png,There are at least two blue blocks as the top of a tower.,true,,
+test-3428-2.png,There are at least two blue blocks as the top of a tower.,false,,
+test-3428-3.png,There are at least two blue blocks as the top of a tower.,false,,
+test-3435-0.png,There is at least one yellow block as the base of a tower.,true,,
+test-3435-1.png,There is at least one yellow block as the base of a tower.,true,,
+test-3435-2.png,There is at least one yellow block as the base of a tower.,false,,
+test-3435-3.png,There is at least one yellow block as the base of a tower.,false,,
+test-3612-0.png,There is no blue block on a blue block.,true,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), not onTop(Y,X)}, C1=blue, C2=blue.                                                                      
+:- p(0).",
+test-3612-2.png,There is no blue block on a blue block.,false,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), not onTop(Y,X)}, C1=blue, C2=blue.                                                                      
+:- p(0).",
+test-3612-3.png,There is no blue block on a blue block.,false,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), not onTop(Y,X)}, C1=blue, C2=blue.                                                                      
+:- p(0).",
+test-3647-0.png,there are atleast two towers with a blue block at the top and above a yellow block.,true,,
+test-3647-1.png,there are atleast two towers with a blue block at the top and above a yellow block.,true,,
+test-3647-2.png,there are atleast two towers with a blue block at the top and above a yellow block.,false,,
+test-3647-3.png,there are atleast two towers with a blue block at the top and above a yellow block.,false,,
+test-3714-0.png,There is a tower with exactly three blocks having a blue block above a yellow block,true,,
+test-3714-1.png,There is a tower with exactly three blocks having a blue block above a yellow block,true,,
+test-3714-3.png,There is a tower with exactly three blocks having a blue block above a yellow block,false,,
+test-3800-0.png,the tower with three blocks has a black block at the top,true,,
+test-3800-1.png,the tower with three blocks has a black block at the top,true,,
+test-3800-2.png,the tower with three blocks has a black block at the top,false,,
+test-3800-3.png,the tower with three blocks has a black block at the top,false,,
+test-3813-0.png,there is a tower which has blocks of all three colors,true,,
+test-3813-1.png,there is a tower which has blocks of all three colors,true,,
+test-3813-2.png,there is a tower which has blocks of all three colors,false,,
+test-3813-3.png,there is a tower which has blocks of all three colors,false,,
+test-3821-0.png,there is at least one tower which has exactly one block which is of black color,true,,
+test-3821-1.png,there is at least one tower which has exactly one block which is of black color,true,,
+test-3821-2.png,there is at least one tower which has exactly one block which is of black color,false,,
+test-3821-3.png,there is at least one tower which has exactly one block which is of black color,false,,
+test-39-0.png,There is 1 box with 2 items,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-39-1.png,There is 1 box with 2 items,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-39-2.png,There is 1 box with 2 items,false,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-39-3.png,There is 1 box with 2 items,true,"p(M,N) :- M = #count{X: item(X)}, N = #count{Y: item(X), inBox(X,Y)}.
+:- p(M,N), M=2, N=1.",
+test-3973-0.png,there is exactly one tower with a black block at the top,true,,
+test-3973-1.png,there is exactly one tower with a black block at the top,true,,
+test-3973-2.png,there is exactly one tower with a black block at the top,false,,
+test-3973-3.png,there is exactly one tower with a black block at the top,false,,
+test-4061-0.png,there is one tower with exactly two blocks having a yellow block at the top,true,,
+test-4061-1.png,there is one tower with exactly two blocks having a yellow block at the top,true,,
+test-4061-3.png,there is one tower with exactly two blocks having a yellow block at the top,false,,
+test-4110-0.png,there is one tower which has a black block over a black block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=black, C2=black.                                                                      
+:- p(1).",
+test-4110-1.png,there is one tower which has a black block over a black block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=black, C2=black.                                                                      
+:- p(1).",
+test-4110-3.png,there is one tower which has a black block over a black block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=black, C2=black.                                                                      
+:- p(1).",
+test-519-0.png,There is a box with 3 items of all 3 different colors.,true,,
+test-519-1.png,There is a box with 3 items of all 3 different colors.,true,,
+test-519-2.png,There is a box with 3 items of all 3 different colors.,false,,
+test-519-3.png,There is a box with 3 items of all 3 different colors.,false,,
+test-550-0.png,There is a box with 4 items at most of which one is triangle and the other is circle.,false,,
+test-550-1.png,There is a box with 4 items at most of which one is triangle and the other is circle.,true,,
+test-550-2.png,There is a box with 4 items at most of which one is triangle and the other is circle.,false,,
+test-550-3.png,There is a box with 4 items at most of which one is triangle and the other is circle.,false,,
+test-624-0.png,There is a box with items of 2 different colors of which at least one is a yellow circle.,true,,
+test-624-2.png,There is a box with items of 2 different colors of which at least one is a yellow circle.,false,,
+test-624-3.png,There is a box with items of 2 different colors of which at least one is a yellow circle.,false,,
+test-703-0.png,There is a box with all 3 different colors and only 1 blue item.,true,,
+test-703-1.png,There is a box with all 3 different colors and only 1 blue item.,true,,
+test-703-2.png,There is a box with all 3 different colors and only 1 blue item.,false,,
+test-703-3.png,There is a box with all 3 different colors and only 1 blue item.,false,,
+test-901-0.png,There are two boxes that has the same number of objects.,true,,
+test-901-1.png,There are two boxes that has the same number of objects.,true,,
+test-901-2.png,There are two boxes that has the same number of objects.,true,,
+test-901-3.png,There are two boxes that has the same number of objects.,false,,
+test-997-0.png,There is a box with a yellow circle and a blue circle.,true,,
+test-997-1.png,There is a box with a yellow circle and a blue circle.,true,,
+test-997-2.png,There is a box with a yellow circle and a blue circle.,false,,
+test-997-3.png,There is a box with a yellow circle and a blue circle.,false,,
+test-1362-0.png,There is a yellow triangle closely touching the bottom of a box.,true,"p(M) :- M = #count{X: item(X), has(X,color,C1), has(X,shape,S1), touching(X,closely,D1)}, C1=yellow, S1=triangle, D1=bottom.
+:- p(0).",
+test-1362-1.png,There is a yellow triangle closely touching the bottom of a box.,true,"p(M) :- M = #count{X: item(X), has(X,color,C1), has(X,shape,S1), touching(X,closely,D1)}, C1=yellow, S1=triangle, D1=bottom.
+:- p(0).",
+test-1362-2.png,There is a yellow triangle closely touching the bottom of a box.,false,"p(M) :- M = #count{X: item(X), has(X,color,C1), has(X,shape,S1), touching(X,closely,D1)}, C1=yellow, S1=triangle, D1=bottom.
+:- p(0).",
+test-1362-3.png,There is a yellow triangle closely touching the bottom of a box.,false,"p(M) :- M = #count{X: item(X), has(X,color,C1), has(X,shape,S1), touching(X,closely,D1)}, C1=yellow, S1=triangle, D1=bottom.
+:- p(0).",
+test-1583-0.png,there is a black triangle touching the base,true,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=triangle, D1=bottom.
+:- p(0).",
+test-1583-1.png,there is a black triangle touching the base,true,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=triangle, D1=bottom.
+:- p(0).",
+test-1583-2.png,there is a black triangle touching the base,false,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=triangle, D1=bottom.
+:- p(0).",
+test-1583-3.png,there is a black triangle touching the base,false,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=triangle, D1=bottom.
+:- p(0).",
+test-1594-0.png,there is a grey box which contains exactly two black objects,true,,
+test-1594-1.png,there is a grey box which contains exactly two black objects,true,,
+test-1594-2.png,there is a grey box which contains exactly two black objects,false,,
+test-1594-3.png,there is a grey box which contains exactly two black objects,false,,
+test-1596-0.png,There is a black circle touching the base edge,true,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=circle, D1=bottom.
+:- p(0).",
+test-1596-1.png,There is a black circle touching the base edge,true,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=circle, D1=bottom.
+:- p(0).",
+test-1596-2.png,There is a black circle touching the base edge,false,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=circle, D1=bottom.
+:- p(0).",
+test-1596-3.png,There is a black circle touching the base edge,false,"p(M) :- M = #count{X: object(X), touching(X,wall,D1), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=circle, D1=bottom.
+:- p(0).",
+test-1789-0.png,None of the black squares are touching any edge,true,,
+test-1789-2.png,None of the black squares are touching any edge,false,,
+test-1789-3.png,None of the black squares are touching any edge,false,,
+test-1792-1.png,There is exactly one blue object touching the edge,true,,
+test-1792-2.png,There is exactly one blue object touching the edge,false,,
+test-1792-3.png,There is exactly one blue object touching the edge,false,,
+test-1931-0.png,There are exactly three blue objects not touching any edge,true,,
+test-1931-1.png,There are exactly three blue objects not touching any edge,true,,
+test-1931-2.png,There are exactly three blue objects not touching any edge,false,,
+test-1931-3.png,There are exactly three blue objects not touching any edge,false,,
+test-199-0.png,there are yellow items in each box,true,,
+test-199-1.png,there are yellow items in each box,true,,
+test-199-2.png,there are yellow items in each box,true,,
+test-199-3.png,there are yellow items in each box,true,,
+test-1999-0.png,there are exactly two yellow squares touching the edge,true,,
+test-1999-2.png,there are exactly two yellow squares touching the edge,false,,
+test-1999-3.png,there are exactly two yellow squares touching the edge,false,,
+test-2172-0.png,There are 5 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1)}, C1=black.                                                                    :- p(N), N=0..4.",
+test-2172-1.png,There are 5 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1)}, C1=black.                                                                    :- p(N), N=0..4.",
+test-2172-2.png,There are 5 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1)}, C1=black.                                                                    :- p(N), N=0..4.",
+test-2172-3.png,There are 5 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1)}, C1=black.                                                                    :- p(N), N=0..4.",
+test-2395-0.png,There is at least 1 tower with 2 black blocks stacked together,true,,
+test-2395-1.png,There is at least 1 tower with 2 black blocks stacked together,true,,
+test-2395-3.png,There is at least 1 tower with 2 black blocks stacked together,false,,
+test-2464-0.png,Two towers have a black block at the base,true,,
+test-2464-1.png,Two towers have a black block at the base,true,,
+test-2464-2.png,Two towers have a black block at the base,false,,
+test-2464-3.png,Two towers have a black block at the base,false,,
+test-2493-0.png,There is 1 tower with a black block at the base,true,,
+test-2493-1.png,There is 1 tower with a black block at the base,true,,
+test-2493-2.png,There is 1 tower with a black block at the base,false,,
+test-2493-3.png,There is 1 tower with a black block at the base,true,,
+test-2532-0.png,There are two blue items touching the wall.,true,,
+test-2532-1.png,There are two blue items touching the wall.,true,,
+test-2532-2.png,There are two blue items touching the wall.,false,,
+test-2532-3.png,There are two blue items touching the wall.,false,,
+test-2539-0.png,There are 3 blue squares touching the wall.,true,,
+test-2539-1.png,There are 3 blue squares touching the wall.,true,,
+test-2539-3.png,There are 3 blue squares touching the wall.,false,,
+test-2574-0.png,There is a box with only one yellow item.,true,,
+test-2574-1.png,There is a box with only one yellow item.,true,,
+test-2574-2.png,There is a box with only one yellow item.,false,,
+test-2574-3.png,There is a box with only one yellow item.,true,,
+test-2616-0.png,There is a box with a blue item touching the wall and a yellow item on top of it.,true,,
+test-2616-1.png,There is a box with a blue item touching the wall and a yellow item on top of it.,true,,
+test-2616-2.png,There is a box with a blue item touching the wall and a yellow item on top of it.,false,,
+test-2616-3.png,There is a box with a blue item touching the wall and a yellow item on top of it.,false,,
+test-2641-0.png,The items of all 3 different colors are touching the wall.,true,,
+test-2641-1.png,The items of all 3 different colors are touching the wall.,true,,
+test-2641-2.png,The items of all 3 different colors are touching the wall.,false,,
+test-2641-3.png,The items of all 3 different colors are touching the wall.,false,,
+test-2834-0.png,There is only one yellow block as the base of a tower.,true,,
+test-2834-1.png,There is only one yellow block as the base of a tower.,true,,
+test-2834-2.png,There is only one yellow block as the base of a tower.,false,,
+test-2834-3.png,There is only one yellow block as the base of a tower.,false,,
+test-2883-0.png,There are two towers that has the same base color that is not black.,true,,
+test-2883-1.png,There are two towers that has the same base color that is not black.,true,,
+test-2883-2.png,There are two towers that has the same base color that is not black.,false,,
+test-2883-3.png,There are two towers that has the same base color that is not black.,false,,
+test-2892-0.png,There is a black block attach to a yellow block that is attach to a blue block.,true,,
+test-2892-1.png,There is a black block attach to a yellow block that is attach to a blue block.,true,,
+test-2892-2.png,There is a black block attach to a yellow block that is attach to a blue block.,false,,
+test-2892-3.png,There is a black block attach to a yellow block that is attach to a blue block.,false,,
+test-2984-0.png,There is a yellow block between two black blocks.,true,,
+test-2984-1.png,There is a yellow block between two black blocks.,true,,
+test-2984-2.png,There is a yellow block between two black blocks.,false,,
+test-2984-3.png,There is a yellow block between two black blocks.,false,,
+test-3002-0.png,The third block of a tower from the top is blue.,true,,
+test-3002-2.png,The third block of a tower from the top is blue.,false,,
+test-3002-3.png,The third block of a tower from the top is blue.,false,,
+test-3099-0.png,The base of a tower is blue.,true,,
+test-3099-1.png,The base of a tower is blue.,true,,
+test-3099-2.png,The base of a tower is blue.,false,,
+test-3099-3.png,The base of a tower is blue.,false,,
+test-3244-0.png,There is a blue block on a blue block.,true,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=blue, C2=blue.                                                                      
+:- p(0).",
+test-3244-1.png,There is a blue block on a blue block.,true,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=blue, C2=blue.                                                                      
+:- p(0).",
+test-3244-2.png,There is a blue block on a blue block.,false,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=blue, C2=blue.                                                                      
+:- p(0).",
+test-3244-3.png,There is a blue block on a blue block.,false,"p(N) :- N = #count{X: has(X,color,C1), block(X), has(Y,color,C2), block(Y), onTop(Y,X)}, C1=blue, C2=blue.                                                                      
+:- p(0).",
+test-3336-0.png,There is a tower with four blocks.,true,,
+test-3336-1.png,There is a tower with four blocks.,true,,
+test-3336-2.png,There is a tower with four blocks.,false,,
+test-3336-3.png,There is a tower with four blocks.,false,,
+test-3337-0.png,There is a blue block as the top of a tower with four blocks.,true,,
+test-3337-1.png,There is a blue block as the top of a tower with four blocks.,true,,
+test-3337-2.png,There is a blue block as the top of a tower with four blocks.,false,,
+test-3337-3.png,There is a blue block as the top of a tower with four blocks.,false,,
+test-3341-0.png,There are two towers with four blocks.,true,,
+test-3341-1.png,There are two towers with four blocks.,true,,
+test-3341-2.png,There are two towers with four blocks.,false,,
+test-3341-3.png,There are two towers with four blocks.,false,,
+test-3502-0.png,There is a black block as the base of a tower with four blocks.,true,,
+test-3502-1.png,There is a black block as the base of a tower with four blocks.,true,,
+test-3502-2.png,There is a black block as the base of a tower with four blocks.,false,,
+test-3502-3.png,There is a black block as the base of a tower with four blocks.,false,,
+test-3608-0.png,There is no blue block above a black block.,true,,
+test-3608-1.png,There is no blue block above a black block.,true,,
+test-3608-3.png,There is no blue block above a black block.,false,,
+test-3658-0.png,there is exactly one tower with one block.,true,,
+test-3658-1.png,there is exactly one tower with one block.,true,,
+test-3658-2.png,there is exactly one tower with one block.,false,,
+test-3658-3.png,there is exactly one tower with one block.,false,,
+test-3876-0.png,There are two towers with a black block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-3876-1.png,There are two towers with a black block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-3876-2.png,There are two towers with a black block at the top,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-3876-3.png,There are two towers with a black block at the top,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1),topOfTower(X,Y)}, C1=black.
+:- p(N), N=0..1.",
+test-3915-0.png,there is one tower with a blue block over a yellow block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=yellow.                                                                      
+:- p(0).",
+test-3915-1.png,there is one tower with a blue block over a yellow block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=yellow.                                                                      
+:- p(0).",
+test-3915-2.png,there is one tower with a blue block over a yellow block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=yellow.                                                                      
+:- p(0).",
+test-3915-3.png,there is one tower with a blue block over a yellow block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=yellow.                                                                      
+:- p(0).",
+test-3923-0.png,there are two towers with a black block above a black block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=black, C2=black.                                                                      
+:- p(N), N=0..1.",
+test-3923-1.png,there are two towers with a black block above a black block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=black, C2=black.                                                                      
+:- p(N), N=0..1.",
+test-3923-2.png,there are two towers with a black block above a black block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=black, C2=black.                                                                      
+:- p(N), N=0..1.",
+test-3923-3.png,there are two towers with a black block above a black block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=black, C2=black.                                                                      
+:- p(N), N=0..1.",
+test-3945-0.png,there is one tower which has blocks of blue color only,true,,
+test-3945-1.png,there is one tower which has blocks of blue color only,true,,
+test-3945-2.png,there is one tower which has blocks of blue color only,false,,
+test-3945-3.png,there is one tower which has blocks of blue color only,false,,
+test-4018-0.png,there is at least one tower with exactly three blocks,true,,
+test-4018-1.png,there is at least one tower with exactly three blocks,true,,
+test-4018-2.png,there is at least one tower with exactly three blocks,false,,
+test-4018-3.png,there is at least one tower with exactly three blocks,false,,
+test-4019-0.png,there is one tower with a black block at the base and a blue block at the top,true,,
+test-4019-1.png,there is one tower with a black block at the base and a blue block at the top,true,,
+test-4019-2.png,there is one tower with a black block at the base and a blue block at the top,false,,
+test-4019-3.png,there is one tower with a black block at the base and a blue block at the top,false,,
+test-4083-0.png,t least one of tower with exactly three blocks has a blue block in the middle,true,FAIL,middle in tower not defined
+test-4083-1.png,t least one of tower with exactly three blocks has a blue block in the middle,true,FAIL,
+test-4083-2.png,t least one of tower with exactly three blocks has a blue block in the middle,false,FAIL,
+test-4083-3.png,t least one of tower with exactly three blocks has a blue block in the middle,false,FAIL,
+test-1154-0.png,There is a box with three black items.,true,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=black.
+:- p(M,N), M=3, N=1.",
+test-1154-1.png,There is a box with three black items.,true,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=black.
+:- p(M,N), M=3, N=1.",
+test-1154-2.png,There is a box with three black items.,false,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=black.
+:- p(M,N), M=3, N=1.",
+test-1154-3.png,There is a box with three black items.,false,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=black.
+:- p(M,N), M=3, N=1.",
+test-1160-0.png,There is a box with at least two circles and at least two triangles.,true,,
+test-1160-1.png,There is a box with at least two circles and at least two triangles.,true,,
+test-1160-2.png,There is a box with at least two circles and at least two triangles.,false,,
+test-1160-3.png,There is a box with at least two circles and at least two triangles.,false,,
+test-1324-1.png,There are two squares closely touching the bottom of a box.,true,"p(M) :- M = #count{X: item(X), has(X,shape,S1), touching(X,closely,D1)}, S1=square, D1=bottom.
+:- p(M), M=0..1.",
+test-1324-2.png,There are two squares closely touching the bottom of a box.,false,"p(M) :- M = #count{X: item(X), has(X,shape,S1), touching(X,closely,D1)}, S1=square, D1=bottom.
+:- p(M), M=0..1.",
+test-1324-3.png,There are two squares closely touching the bottom of a box.,false,"p(M) :- M = #count{X: item(X), has(X,shape,S1), touching(X,closely,D1)}, S1=square, D1=bottom.
+:- p(M), M=0..1.",
+test-1376-0.png,There is a yellow circle closely touching right wall of a box.,true,"p(M) :- M = #count{X: item(X), has(X,color,C1), has(X,shape,S1), touching(X,closely,D1)}, C1=yellow, S1=circle, D1=right.
+:- p(0).",
+test-1376-2.png,There is a yellow circle closely touching right wall of a box.,false,"p(M) :- M = #count{X: touchingWCloseinBox(X,Y,D1), has(X,shape,S1), has(X,color,C1)}, S1=circle, C1=yellow, D1=right. 
+:- p(0).",
+test-1376-3.png,There is a yellow circle closely touching right wall of a box.,false,"p(M) :- M = #count{X: touchingWCloseinBox(X,Y,D1), has(X,shape,S1), has(X,color,C1)}, S1=circle, C1=yellow, D1=right. 
+:- p(0).",
+test-1381-1.png,There is a circle closely touching a corner of a box.,true,"p(M) :- M = #count{X: has(X,shape,S1), touchingCCloseinBox(X,B)}, S1=circle
+:- p(0).",
+test-1381-2.png,There is a circle closely touching a corner of a box.,false,"p(M) :- M = #count{X: has(X,shape,S1), touchingCCloseinBox(X,B)}, S1=circle
+:- p(0).",
+test-1533-0.png,one of the grey box contains objects which are only square and traingle,true,"p(M) :- M = #count{Y: object(X),has(X,shape,S1),inBox(X,Y), object(Z), has(Z,shape,S2),inBox(Z,Y)}, S1=square, S2=triangle.
+:- p(0).",
+test-1533-2.png,one of the grey box contains objects which are only square and traingle,false,"p(M) :- M = #count{Y: object(X),has(X,shape,S1),inBox(X,Y), object(Z), has(Z,shape,S2),inBox(Z,Y)}, S1=square, S2=triangle.
+:- p(0).",
+test-1533-3.png,one of the grey box contains objects which are only square and traingle,false,"p(M) :- M = #count{Y: object(X),has(X,shape,S1),inBox(X,Y), object(Z), has(Z,shape,S2),inBox(Z,Y)}, S1=square, S2=triangle.
+:- p(0).",
+test-1718-0.png,there is one yellow square not touching the edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=square.
+:- p(0).",
+test-1718-1.png,there is one yellow square not touching the edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=square.
+:- p(0).",
+test-1718-2.png,there is one yellow square not touching the edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=square.
+:- p(0).",
+test-1718-3.png,there is one yellow square not touching the edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=square.
+:- p(0).",
+test-1742-0.png,there is a yellow circle touching the edge,true,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- p(0).",
+test-1742-1.png,there is a yellow circle touching the edge,true,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- p(0).",
+test-1742-2.png,there is a yellow circle touching the edge,false,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- p(0).",
+test-1742-3.png,there is a yellow circle touching the edge,false,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- p(0).",
+test-1838-0.png,there is a black square touching the edge,true,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- p(0).",
+test-1838-1.png,there is a black square touching the edge,true,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- p(0).",
+test-1838-2.png,there is a black square touching the edge,false,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- p(0).",
+test-1838-3.png,there is a black square touching the edge,false,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=square.
+:- p(0).",
+test-1915-0.png,t least one yellow circle is touching the edge,true,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- p(0).",
+test-1915-1.png,t least one yellow circle is touching the edge,true,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- p(0).",
+test-1915-2.png,t least one yellow circle is touching the edge,false,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- p(0).",
+test-1915-3.png,t least one yellow circle is touching the edge,false,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- p(0).",
+test-2034-0.png,None of the black circle is touching any edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=circle.
+:- not p(0).",
+test-2034-1.png,None of the black circle is touching any edge,true,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=circle.
+:- not p(0).",
+test-2034-2.png,None of the black circle is touching any edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=circle.
+:- not p(0).",
+test-2034-3.png,None of the black circle is touching any edge,false,"p(M) :- M = #count{X: not touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, C1=black, S1=circle.
+:- not p(0).",
+test-2206-0.png,There is 1 blue block,true,"p(N) :- #count{X: block(X), has(X,color,C1)}, C1=blue.                                                                                              :- p(0)",
+test-2206-1.png,There is 1 blue block,true,"p(N) :- #count{X: block(X), has(X,color,C1)}, C1=blue.                                                                                              :- p(0)",
+test-2206-3.png,There is 1 blue block,true,"p(N) :- #count{X: block(X), has(X,color,C1)}, C1=blue.                                                                                              :- p(0)",
+test-2239-0.png,There are 2 towers with at least 1 yellow block,true,"p(M,N) :- M = #count{B: block(X), memberOfTower(X,B), has(X,color,C1)}, N = #count{B: block(X), has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0..1, N=0.",
+test-2239-1.png,There are 2 towers with at least 1 yellow block,true,"p(M,N) :- M = #count{B: block(X), memberOfTower(X,B), has(X,color,C1)}, N = #count{B: block(X), has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0..1, N=0.",
+test-2239-2.png,There are 2 towers with at least 1 yellow block,true,"p(M,N) :- M = #count{B: block(X), memberOfTower(X,B), has(X,color,C1)}, N = #count{B: block(X), has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0..1, N=0.",
+test-2239-3.png,There are 2 towers with at least 1 yellow block,true,"p(M,N) :- M = #count{B: block(X), memberOfTower(X,B), has(X,color,C1)}, N = #count{B: block(X), has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0..1, N=0.",
+test-2248-0.png,There are 3 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=black.                                        :- p(N), N=0..2.",
+test-2248-1.png,There are 3 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=black.                                        :- p(N), N=0..2.",
+test-2248-2.png,There are 3 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=black.                                        :- p(N), N=0..2.",
+test-2248-3.png,There are 3 black blocks,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=black.                                        :- p(N), N=0..2.",
+test-2870-0.png,There is a black tower.,true,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=black.
+:- p(0).",
+test-2870-1.png,There is a black tower.,true,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=black.
+:- p(0).",
+test-2870-2.png,There is a black tower.,false,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=black.
+:- p(0).",
+test-2870-3.png,There is a black tower.,false,"p(N) :- N = #count{X: towerCol(X, C1)}, C1=black.
+:- p(0).",
+test-3020-0.png,There is a blue block bellow a yellow block.,true,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=blue, C2=yellow.
+:- p(0).",
+test-3020-1.png,There is a blue block bellow a yellow block.,true,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=blue, C2=yellow.
+:- p(0).",
+test-3020-2.png,There is a blue block bellow a yellow block.,false,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=blue, C2=yellow.
+:- p(0).",
+test-3020-3.png,There is a blue block bellow a yellow block.,false,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=blue, C2=yellow.
+:- p(0).",
+test-3080-0.png,There is a black block bellow a yellow blocks.,true,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=black, C2=yellow.
+:- p(N), N=0..1.",
+test-3080-1.png,There is a black block bellow a yellow blocks.,true,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=black, C2=yellow.
+:- p(N), N=0..1.",
+test-3080-2.png,There is a black block bellow a yellow blocks.,true,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=black, C2=yellow.
+:- p(N), N=0..1.",
+test-3080-3.png,There is a black block bellow a yellow blocks.,false,"p(N) :- N = #count{B: memberOfTower(X,B), has(X,color,C1), memberOfTower(Y,B), has(Y,color,C2), onTop(X,Y)}, C1=black, C2=yellow.
+:- p(N), N=0..1.",
+test-3110-0.png,"There is a tower with three blocks, and it has a yellow block.",true,"p(N) :- N = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(0).",
+test-3110-1.png,"There is a tower with three blocks, and it has a yellow block.",true,"p(N) :- N = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(0).",
+test-3110-2.png,"There is a tower with three blocks, and it has a yellow block.",false,"p(N) :- N = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(0).",
+test-3110-3.png,"There is a tower with three blocks, and it has a yellow block.",false,"p(N) :- N = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(0).",
+test-3152-0.png,"There is at least one tower with exactly three blocks, and it has at least one yellow block.",true,"p(M,N) :- M = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(M,N), M=0, N=0.",
+test-3152-1.png,"There is at least one tower with exactly three blocks, and it has at least one yellow block.",true,"p(M,N) :- M = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(M,N), M=0, N=0.",
+test-3152-2.png,"There is at least one tower with exactly three blocks, and it has at least one yellow block.",false,"p(M,N) :- M = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(M,N), M=0, N=0.",
+test-3152-3.png,"There is at least one tower with exactly three blocks, and it has at least one yellow block.",false,"p(M,N) :- M = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B), has(X,color,C1)}, Si1=3, C1=yellow.
+:- p(M,N), M=0, N=0.",
+test-3153-0.png,There is a tower with only one block.,true,"p(N) :- N = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B)}, Si1=1.
+:- p(0).",
+test-3153-1.png,There is a tower with only one block.,true,"p(N) :- N = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B)}, Si1=1.
+:- p(0).",
+test-3153-2.png,There is a tower with only one block.,false,"p(N) :- N = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B)}, Si1=1.
+:- p(0).",
+test-3153-3.png,There is a tower with only one block.,false,"p(N) :- N = #count{B: sizeOfTower(Si1,B), block(X), memberOfTower(X,B)}, Si1=1.
+:- p(0).",
+test-3368-0.png,There is at least one yellow block as the top of a tower with three blocks.,true,FAIL,"top of the tower can only be a single block as per defined rules, at least here not incorporated"
+test-3368-1.png,There is at least one yellow block as the top of a tower with three blocks.,true,FAIL,
+test-3368-2.png,There is at least one yellow block as the top of a tower with three blocks.,false,FAIL,
+test-3368-3.png,There is at least one yellow block as the top of a tower with three blocks.,false,FAIL,
+test-3506-0.png,There is a yellow block as the base of a tower.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=yellow.
+:- p(0).",
+test-3506-1.png,There is a yellow block as the base of a tower.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=yellow.
+:- p(0).",
+test-3506-2.png,There is a yellow block as the base of a tower.,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=yellow.
+:- p(0).",
+test-3506-3.png,There is a yellow block as the base of a tower.,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=yellow.
+:- p(0).",
+test-3569-0.png,There is no tower with exactly two yellow blocks.,true,"p(M, N) :- M = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C1), block(Z)}, N = #count{X,Z: has(X,color,C1), block(X), has(Z,color,C1), block(Z)}, C1=yelllow.                                   
+:- not p(M,N), M=0, N=2.",
+test-3569-1.png,There is no tower with exactly two yellow blocks.,true,"p(M, N) :- M = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C1), block(Z)}, N = #count{X,Z: has(X,color,C1), block(X), has(Z,color,C1), block(Z)}, C1=yelllow.                                   
+:- not p(M,N), M=0, N=2.",
+test-3569-2.png,There is no tower with exactly two yellow blocks.,false,"p(M, N) :- M = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C1), block(Z)}, N = #count{X,Z: has(X,color,C1), block(X), has(Z,color,C1), block(Z)}, C1=yelllow.                                   
+:- not p(M,N), M=0, N=2.",
+test-3627-0.png,there is one tower with exactly three blocks having a yellow block over a blue block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X), sizeOfTower(Si1,Y)}, C1=yellow, C2=blue, Si1=3.                                                                      
+:- p(0).",
+test-3627-1.png,there is one tower with exactly three blocks having a yellow block over a blue block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X), sizeOfTower(Si1,Y)}, C1=yellow, C2=blue, Si1=3.                                                                      
+:- p(0).",
+test-3627-2.png,there is one tower with exactly three blocks having a yellow block over a blue block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X), sizeOfTower(Si1,Y)}, C1=yellow, C2=blue, Si1=3.                                                                      
+:- p(0).",
+test-3627-3.png,there is one tower with exactly three blocks having a yellow block over a blue block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X), sizeOfTower(Si1,Y)}, C1=yellow, C2=blue, Si1=3.                                                                      
+:- p(0).",
+test-3628-0.png,there are two towers with a blue block over a blue block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=blue.                                   
+:- p(N), N=0..1.",
+test-3628-1.png,there are two towers with a blue block over a blue block,true,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=blue.                                   
+:- p(N), N=0..1.",
+test-3628-2.png,there are two towers with a blue block over a blue block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=blue.                                   
+:- p(N), N=0..1.",
+test-3628-3.png,there are two towers with a blue block over a blue block,false,"p(N) :- N = #count{Y: memberOfTower(X,Y), memberOfTower(Z,Y), has(X,color,C1), block(X), has(Z,color,C2), block(Z), onTop(Z,X)}, C1=blue, C2=blue.                                   
+:- p(N), N=0..1.",
+test-3672-0.png,there is exactly one tower with a black block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=black.
+:- p(1).",
+test-3672-1.png,there is exactly one tower with a black block at the base,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=black.
+:- p(1).",
+test-3672-2.png,there is exactly one tower with a black block at the base,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=black.
+:- p(1).",
+test-3672-3.png,there is exactly one tower with a black block at the base,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), botOfTower(X,Y)}, C1=black.
+:- p(1).",
+test-3725-0.png,there are two towers with a blue block on the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=blue.
+:- p(N), N=0..1.",
+test-3725-1.png,there are two towers with a blue block on the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=blue.
+:- p(N), N=0..1.",
+test-3725-2.png,there are two towers with a blue block on the top,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=blue.
+:- p(N), N=0..1.",
+test-3725-3.png,there are two towers with a blue block on the top,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=blue.
+:- p(N), N=0..1.",
+test-3808-0.png,there is at least one tower with exactly two objects either of black or yellow color,true,FAIL,“either or” not defined
+test-3808-1.png,there is at least one tower with exactly two objects either of black or yellow color,true,FAIL,
+test-3808-2.png,there is at least one tower with exactly two objects either of black or yellow color,false,FAIL,
+test-3808-3.png,there is at least one tower with exactly two objects either of black or yellow color,false,FAIL,
+test-3920-0.png,there is a tower with at least two consecutive blacks blocks over a blue block,true,FAIL,“consecutives” not defined
+test-3920-1.png,there is a tower with at least two consecutive blacks blocks over a blue block,true,FAIL,
+test-3920-2.png,there is a tower with at least two consecutive blacks blocks over a blue block,false,FAIL,
+test-3920-3.png,there is a tower with at least two consecutive blacks blocks over a blue block,false,FAIL,
+test-3997-0.png,There is exactly one tower with a yellow block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=yellow.
+:- p(1).",
+test-3997-1.png,There is exactly one tower with a yellow block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=yellow.
+:- p(1).",
+test-3997-2.png,There is exactly one tower with a yellow block at the top,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=yellow.
+:- p(1).",
+test-3997-3.png,There is exactly one tower with a yellow block at the top,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=yellow.
+:- p(1).",
+test-4044-0.png,there is one tower with a  blue block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-4044-1.png,there is one tower with a  blue block at the top,true,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-4044-2.png,there is one tower with a  blue block at the top,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-4044-3.png,there is one tower with a  blue block at the top,false,"p(N) :- N = #count{Y: block(X), has(X,color,C1), topOfTower(X,Y)}, C1=blue.
+:- p(0).",
+test-436-0.png,There is only 1 box with at least 1 yellow square,true,"p(M,N) :- M = #count{Y: has(X,color,C1), has(X,shape,S1), inBox(X,Y)}, , N =  #count{X: has(X,color,C1),has(X,shape,S1)}, C1=yellow, S1=square.
+:- not p(M,N), M=1, N=0.",
+test-436-2.png,There is only 1 box with at least 1 yellow square,true,"p(M,N) :- M = #count{Y: has(X,color,C1), has(X,shape,S1), inBox(X,Y)}, , N =  #count{X: has(X,color,C1),has(X,shape,S1)}, C1=yellow, S1=square.
+:- not p(M,N), M=1, N=0.",
+test-449-0.png,There are 2 boxes with at least 2 blue items,true,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=blue.
+:- p(M,N), M=0..1, N=2.",
+test-449-1.png,There are 2 boxes with at least 2 blue items,true,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=blue.
+:- p(M,N), M=0..1, N=2.",
+test-449-2.png,There are 2 boxes with at least 2 blue items,true,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=blue.
+:- p(M,N), M=0..1, N=2.",
+test-449-3.png,There are 2 boxes with at least 2 blue items,false,"p(M,N) :- M = #count{X: item(X), has(X,color,C1)}, N = #count{Y: item(X), has(X,color,C1), inBox(X,Y)}, C1=blue.
+:- p(M,N), M=0..1, N=2.",
+test-600-0.png,There is a small black triangle touching the wall.,true,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, Si1=small, C1=black, S1=triangle.
+:- p(0).",
+test-600-1.png,There is a small black triangle touching the wall.,true,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, Si1=small, C1=black, S1=triangle.
+:- p(0).",
+test-600-2.png,There is a small black triangle touching the wall.,false,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, Si1=small, C1=black, S1=triangle.
+:- p(0).",
+test-600-3.png,There is a small black triangle touching the wall.,false,"p(M) :- M = #count{X: touching(X,wall,_), has(X,color,C1), has(X,shape,S1)}, Si1=small, C1=black, S1=triangle.
+:- p(0).",
+test-613-0.png,There are 2 boxes with only yellow items.,true,"p(M,N) :- M = #count{Y: item(X),has(X,color,C1),inBox(X,Y)}, N = #count{X: item(X),has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0..1, N=0.",
+test-613-1.png,There are 2 boxes with only yellow items.,true,"p(M,N) :- M = #count{Y: item(X),has(X,color,C1),inBox(X,Y)}, N = #count{X: item(X),has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0..1, N=0.",
+test-613-2.png,There are 2 boxes with only yellow items.,false,"p(M,N) :- M = #count{Y: item(X),has(X,color,C1),inBox(X,Y)}, N = #count{X: item(X),has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0..1, N=0.",
+test-613-3.png,There are 2 boxes with only yellow items.,false,"p(M,N) :- M = #count{Y: item(X),has(X,color,C1),inBox(X,Y)}, N = #count{X: item(X),has(X,color,C1)}, C1=yellow.
+:- p(M,N), M=0..1, N=0.",
+test-828-0.png,There is a yellow circle that is nearly touching the corner.,true,"p(M) :- M = #count{X: touchingCClose(X), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- not p(0).",
+test-828-1.png,There is a yellow circle that is nearly touching the corner.,true,"p(M) :- M = #count{X: touchingCClose(X), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- not p(0).",
+test-828-2.png,There is a yellow circle that is nearly touching the corner.,false,"p(M) :- M = #count{X: touchingCClose(X), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- not p(0).",
+test-828-3.png,There is a yellow circle that is nearly touching the corner.,false,"p(M) :- M = #count{X: touchingCClose(X), has(X,color,C1), has(X,shape,S1)}, C1=yellow, S1=circle.
+:- not p(0).",
+test-921-0.png,There is a box with five items and the colors are yellow and blue.,true,FAIL,“colors are yellow and blue” not interpreted correctly
+test-921-1.png,There is a box with five items and the colors are yellow and blue.,true,FAIL,
+test-921-2.png,There is a box with five items and the colors are yellow and blue.,false,FAIL,
+test-921-3.png,There is a box with five items and the colors are yellow and blue.,false,FAIL,
+test-995-0.png,There is at least one black item closely touching the bottom of a box.,true,"p(M) :- M = #count{X: item(X), touching(X,closely,D1), has(X,color,C1)}, C1=black, D1=bottom.
+:- p(0).",
+test-995-1.png,There is at least one black item closely touching the bottom of a box.,true,"p(M) :- M = #count{X: item(X), touching(X,closely,D1), has(X,color,C1)}, C1=black, D1=bottom.
+:- p(0).",
+test-995-3.png,There is at least one black item closely touching the bottom of a box.,false,"p(M) :- M = #count{X: item(X), touching(X,closely,D1), has(X,color,C1)}, C1=black, D1=bottom.
+:- p(0).",

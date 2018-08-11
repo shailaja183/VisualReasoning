@@ -1,0 +1,8 @@
+scipy==1.0.0
+numpy==1.13.1
+opencv-python
+imutils==0.4.5
+argparse==1.1
+unipath
+nltk==3.2.5
+language_check==1.1
