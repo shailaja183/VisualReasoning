@@ -16,55 +16,31 @@ class ProcessedImage:
 		pass
 
 	# basic image processing tasks - colorspace conversion, masking, resizing, thresholding and contour approximation
-	def image_processing(self, imagepath, asp_rule_file, asp_fact_file):
+	def image_processing(self, imagepath, asp_rule_file, asp_fact_file, flag):
 
-		# read image at given path and color space conversion RGB to HSV
-		img = cv2.imread(imagepath)
-		img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+		image = cv2.imread(imagepath)
+		#cv2.imshow("Image", image)
+		#cv2.waitKey(0)
 
-		# define range for black shade
-		lower_black = np.array([0,0,0]) 
-		upper_black = np.array([40,40,40])
-		mask_black = cv2.inRange(img_hsv, lower_black, upper_black)
+		image[np.where((image == [128,128,128]).all(axis = 2))] = [211,211,211]
+		image[np.where((image != [211,211,211]).all(axis = 2))] = [255,255,255]
+		image[np.where((image != [255,255,255]).all(axis = 2))] = [0,0,0]
 
-		# convert black shapes in original image to red
-		output1_img = img.copy()
-		output1_img[np.where(mask_black==255)] = [0, 0, 255]
-		img_hsv2 = cv2.cvtColor(output1_img, cv2.COLOR_BGR2HSV)
-
-		# define range for blue shade
-		lower_blue = np.array([0,120,255])
-		upper_blue = np.array([130,255,255])
-		mask_blue = cv2.inRange(img_hsv2, lower_blue, upper_blue)
-
-		# define range for yellow shade
-		lower_yellow = np.array([20,240,240]) 
-		upper_yellow = np.array([40,255,255])
-		mask_yellow = cv2.inRange(img_hsv2, lower_yellow, upper_yellow)
-
-		# define range for red shade
-		lower_red = np.array([144,0,0]) 
-		upper_red = np.array([255,0,0])
-		mask_red = cv2.inRange(img_hsv2, lower_red, upper_red)
-
-		# mask all portion with black that is not in range of defined blue, yellow and red shades
-		mask = mask_blue + mask_yellow + mask_red
-		output2_img = output1_img.copy()
-		output2_img[np.where(mask==0)] = 0
-
-		# resize image for better detection of small shapes and compute aspect ratio or original and zoomed images 
-		resized = imutils.resize(output2_img, width=500) #1000
-		ratio = output2_img.shape[0] / float(resized.shape[0])
-		 
-		# color space conversion RGB to GRAY and RGB to LAB
+		resized = imutils.resize(image, width=1000)
+		ratio = image.shape[0] / float(resized.shape[0])
 		gray = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
 		lab = cv2.cvtColor(resized, cv2.COLOR_BGR2LAB)
 
-		# apply thresholding and approximate contours of shapes
-		thresh = cv2.threshold(gray, 60, 255, cv2.THRESH_BINARY)[1]
-		cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+		if flag==True:
+			blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+			thresh = cv2.threshold(blurred, 60, 255, cv2.THRESH_BINARY)[1]
+			cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+		elif flag==False:
+			thresh = cv2.threshold(gray, 60, 255, cv2.THRESH_BINARY)[1]
+			cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+
 		cnts = cnts[0] if imutils.is_cv2() else cnts[1]
-		 
+
 		# create objects for ShapeDetector and ColorLabeler defined in color_shape_size_classifier
 		sd = ShapeDetector()
 		cl = ColorLabeler()
@@ -80,24 +56,25 @@ class ProcessedImage:
 		left = []
 		top = []
 
-		# for each contours obtained, identify shape, size and color
+		#for c in cnts:
 		for i, c in enumerate(cnts):
-
-			# obtain image moments to locate center coordinates of a shape
 			M = cv2.moments(c)
 			cX = int((M["m10"] / M["m00"]) * ratio)
 			cY = int((M["m01"] / M["m00"]) * ratio)
-		 
-		 	# call shape and color recognizers with appropriate arguments 
-		 	# show contour boundarues and display attributes (shape, size, color) over them  
 			shape, halfside = sd.detect(c)
+			if shape=="rect":
+				preprocess(imagepath,False)
+				break
 			color = cl.label(lab, c)
 			c = c.astype("float")
 			c *= ratio
 			c = c.astype("int")
 			text = "{} {}".format(color, shape)
-			cv2.drawContours(output2_img, [c], -1, (0, 255, 0), 1)
-			cv2.putText(output2_img, text, (cX, cY), cv2.FONT_HERSHEY_COMPLEX_SMALL, 0.5, (255, 255, 255), 1)
+			cv2.drawContours(image, [c], -1, (0, 255, 0), 1)
+			cv2.putText(image, shape, (cX, cY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+
+			cv2.imshow("Image", image)
+			cv2.waitKey(0)
 
 			closelytouch = []
 			touch = []

@@ -3,6 +3,7 @@ from scipy.spatial import distance as dist
 from collections import OrderedDict
 import numpy as np
 import cv2
+import imutils
 
 # class ShapeDetector  
 class ShapeDetector:
@@ -16,35 +17,40 @@ class ShapeDetector:
 		# initialize shape and size 
 		shape = "unidentified"
 		size = ""
-		halfside = 0.0
+		#halfside = 0.0
 
 		# approximate perimeter and contour
 		perimeter = cv2.arcLength(c, True)
 		approx = cv2.approxPolyDP(c, 0.04 * perimeter, True)
-
+		
 		# size classification
 		# shape with predefined perimeter threshold is classified as different sizes 	
-		if perimeter <= 55:
+		if perimeter >= 70 and perimeter <= 110:
 			size = "sml"
-		elif (perimeter >= 60 and perimeter <= 105):
+		elif perimeter >= 150 and perimeter <= 200:
 			size = "med"
-		elif perimeter >= 110:
+		elif perimeter >= 240 and perimeter <= 320:
 			size = "lrg"
 		else:
 			print "perimeter not identified correctly"
 
+
 		# shape classification
-		# shape with 3 vertices is a triangle, 4 vertices is a square or else circle 	
-		if len(approx) == 3: 
+		# shape with 3 vertices is a triangle, 4 vertices is a square or else circle 
+
+		if len(approx) == 3:
 			shape = "tri"
 			halfside = perimeter/6.0
-		elif len(approx) == 4: 
-			shape = "sqr"
-			halfside = perimeter/8.0
-		else: 
+		elif len(approx) == 4:
+			(x, y, w, h) = cv2.boundingRect(approx)
+			ar = w / float(h)
+			shape = "sqr" if ar >= 0.95 and ar <= 1.05 else "rect"
+			halfside = perimeter/8.0 
+		else:
 			shape = "cir"
 			halfside = perimeter/6.28
-
+			
+		print(shape, size, perimeter)
 		# return name of the shape
 		return size + " " + shape, halfside
  

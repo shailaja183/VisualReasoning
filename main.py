@@ -44,7 +44,7 @@ class Main:
 
 		# create object for image processing module and call function with appropriate arguments
 		pi = ProcessedImage()
-		pi.image_processing(imagepath, asp_rule_file, asp_fact_file)
+		pi.image_processing(imagepath, asp_rule_file, asp_fact_file, True)
 		print("\nImage Processed, it will open automatically, press Enter to continue.")
 
 		# create object for clingo fact generation module and call function with appropriate arguments 
